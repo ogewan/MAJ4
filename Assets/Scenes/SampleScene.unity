@@ -140,7 +140,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -156,6 +156,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1631476182184213868, guid: 9073cd4ce260d46c689615151f0524f9, type: 3}
+      propertyPath: m_Mass
+      value: 1000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1631476182184213868, guid: 9073cd4ce260d46c689615151f0524f9, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1631476182184213868, guid: 9073cd4ce260d46c689615151f0524f9, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4491010701637023185, guid: 9073cd4ce260d46c689615151f0524f9, type: 3}
       propertyPath: m_Name
       value: Wall
@@ -210,6 +222,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5612419013941814925, guid: 9073cd4ce260d46c689615151f0524f9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7858733165979572647, guid: 9073cd4ce260d46c689615151f0524f9, type: 3}
+      propertyPath: m_AutoTiling
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7858733165979572647, guid: 9073cd4ce260d46c689615151f0524f9, type: 3}
+      propertyPath: m_EdgeRadius
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -395,6 +415,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1631476182184213868, guid: 9073cd4ce260d46c689615151f0524f9, type: 3}
+      propertyPath: m_Mass
+      value: 1000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1631476182184213868, guid: 9073cd4ce260d46c689615151f0524f9, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4491010701637023185, guid: 9073cd4ce260d46c689615151f0524f9, type: 3}
       propertyPath: m_Name
       value: Wall (3)
@@ -460,6 +488,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1631476182184213868, guid: 9073cd4ce260d46c689615151f0524f9, type: 3}
+      propertyPath: m_Mass
+      value: 1000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1631476182184213868, guid: 9073cd4ce260d46c689615151f0524f9, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4491010701637023185, guid: 9073cd4ce260d46c689615151f0524f9, type: 3}
       propertyPath: m_Name
       value: Wall (1)
@@ -525,6 +561,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1631476182184213868, guid: 9073cd4ce260d46c689615151f0524f9, type: 3}
+      propertyPath: m_Mass
+      value: 1000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1631476182184213868, guid: 9073cd4ce260d46c689615151f0524f9, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4491010701637023185, guid: 9073cd4ce260d46c689615151f0524f9, type: 3}
       propertyPath: m_Name
       value: Wall (2)
