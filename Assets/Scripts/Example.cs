@@ -25,19 +25,21 @@ public class Example : MonoBehaviour
             _exampleValue = value;
         }
     }
+    public ExampleAsset asset { get => _asset; set => _asset = value; }
     public static Example Instance()
     {
         // Create the singleton if it doesn't exist, otherwise return the singleton
         if (_instance == null)
         {
             // This loads a prefab to create this singleton (This allows settings to be added in the editor via prefab)
-            /*GameObject example = Instantiate(Resources.Load<GameObject>("Example"));
-            app.isStatic = true;
-            app.name = "__example";*/
-            GameObject example = new GameObject("__example", typeof(Example))
+            GameObject example = Instantiate(Resources.Load<GameObject>("Example"));
+            example.isStatic = true;
+            example.name = "__example";
+            // Create via new GameObject
+            /*GameObject example = new GameObject("__example", typeof(Example))
             {
                 isStatic = true
-            };
+            };*/
 
             _instance = example.GetComponent<Example>();
         }
@@ -45,7 +47,10 @@ public class Example : MonoBehaviour
     }
     private static Example _instance;
     // Make fields private
+    [SerializeField]
     private float _exampleValue;
+    [SerializeField]
+    private ExampleAsset _asset;
     private void Start()
     {
         // Destroy self if its not the first.
