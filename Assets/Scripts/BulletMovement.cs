@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class BulletMovement : MonoBehaviour
 {
+<<<<<<< Updated upstream
     public float speed;
+=======
+     public float speed;
+>>>>>>> Stashed changes
     
 
     private float TimeElapsed;
