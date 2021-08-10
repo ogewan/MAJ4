@@ -22,8 +22,8 @@ public class EnemyMovement : MonoBehaviour
     void Update()
     {
         transform.position = waypoints[currentWaypoint].position * progression * Time.deltaTime;
-        
-        Vector3 dir = waypoints[currentWaypoint].position - transform.position
+
+        Vector3 dir = waypoints[currentWaypoint].position - transform.position;
         float angle = Mathf.Atan2(dir.y,dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle -90, Vector3.forward);
 
