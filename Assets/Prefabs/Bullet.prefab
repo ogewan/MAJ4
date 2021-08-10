@@ -86,7 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
-
 --- !u!58 &402578695290651676
 CircleCollider2D:
   m_ObjectHideFlags: 0

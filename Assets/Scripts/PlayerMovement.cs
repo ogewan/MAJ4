@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public Transform playerPosition;
     public Transform spawnPoint;
     public float speed = 10f;
 
@@ -29,5 +30,6 @@ public class PlayerMovement : MonoBehaviour
             transform.eulerAngles = new Vector3(0.0f, 0.0f, 180.0f);
 
         transform.position = transform.position + new Vector3(moveX * speed * Time.deltaTime, moveY * speed * Time.deltaTime, 0);
+        //if
     }
 }
