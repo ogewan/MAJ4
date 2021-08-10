@@ -8,14 +8,13 @@ public class PlayerShooting : MonoBehaviour
     public Transform StartPosition;
     public bool CanOpenTheDoor = false;
     
-    
 
-    
     void Update()
     {
+
         if(Input.GetKeyDown("space"))
         {
-            Instantiate(rb, StartPosition.position, StartPosition.rotation);
+            Instantiate(rb, StartPosition.position, transform.rotation);
         }
         if(CanOpenTheDoor == true)
         {

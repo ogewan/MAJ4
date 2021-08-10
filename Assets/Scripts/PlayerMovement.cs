@@ -7,6 +7,22 @@ public class PlayerMovement : MonoBehaviour
     public Transform spawnPoint;
     public float speed = 10f;
 
+    Vector2 lookDirection;
+    float lookAngle;
+
+    
+    void Update()
+    {
+        lookDirection = Camera.main.WorldToScreenPoint(Input.mousePosition);
+        lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
+
+        transform.rotation = Quaternion.Euler(0, 0, lookAngle);
+
+        
+    }
+
+
+
     // Start is called before the first frame update
     void Start()
     {
