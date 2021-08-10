@@ -4,12 +4,8 @@ using UnityEngine;
 
 public class BulletMovement : MonoBehaviour
 {
-<<<<<<< Updated upstream
     public float speed;
-=======
-     public float speed;
->>>>>>> Stashed changes
-    
+
 
     private float TimeElapsed;
     public float TimeToDestroy;
@@ -17,7 +13,7 @@ public class BulletMovement : MonoBehaviour
      void Start()
     {
      TimeElapsed = 0f;
-        
+
     }
     void Update()
     {
@@ -26,7 +22,7 @@ public class BulletMovement : MonoBehaviour
         if(TimeElapsed > TimeToDestroy)
         {
             Destroy(gameObject);
-           
+
         }
         else
         {
