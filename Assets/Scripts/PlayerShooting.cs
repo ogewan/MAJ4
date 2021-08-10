@@ -7,10 +7,10 @@ public class PlayerShooting : MonoBehaviour
     public Rigidbody2D rb;
     public Transform StartPosition;
     public bool CanOpenTheDoor = false;
-    
-    
 
-    
+
+
+
     void Update()
     {
         if(Input.GetKeyDown("space"))
@@ -21,6 +21,6 @@ public class PlayerShooting : MonoBehaviour
         {
             Debug.Log("Can Open DOOR");
         }
-        
+
     }
 }
