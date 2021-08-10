@@ -15,7 +15,7 @@ public class EnemyBulletScript : MonoBehaviour
         if(TimeElapsedEnemy > TimeToDestroyEnemy)
         {
             Destroy(gameObject);
-           
+
         }
         else
         {
@@ -29,6 +29,9 @@ public class EnemyBulletScript : MonoBehaviour
         {
             Destroy(gameObject);
             Debug.Log("Player took DAMAGE");
+        } else if (other.tag == "wall")
+        {
+            Destroy(gameObject);
         }
     }
 }
