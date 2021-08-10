@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class menuHandler : MonoBehaviour
 {
     public Button newGameButton;
-    // Start is called before the first frame update
+    
     void Start()
     {
         Button btn = newGameButton.GetComponent<Button>();
