@@ -140,11 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 7118195306508383980, guid: 8ce2abbbad0d15344b92c679bef0961f, type: 3}
-<<<<<<< Updated upstream
   StartPosition: {fileID: 485846991}
-=======
-  StartPosition: {fileID: 0}
->>>>>>> Stashed changes
 --- !u!1 &6662159381363690335
 GameObject:
   m_ObjectHideFlags: 0
