@@ -6,7 +6,9 @@ public class EnemyMovement : MonoBehaviour
 {
     public List<Transform> waypoints;
     public float speed = 5f;
+
     public float threshold = 0.5f;
+
     private int currentWaypoint = 0;
     private float progression = 0;
     private int nextWaypoint = 1;
@@ -22,13 +24,10 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //transform.position = waypoints[currentWaypoint].position * progression * Time.deltaTime;
 
         Vector3 dir = waypoints[currentWaypoint].position - transform.position;
         dir.Normalize();
         transform.position = transform.position + dir * speed * Time.deltaTime;
-        //float angle = Mathf.Atan2(dir.y,dir.x) * Mathf.Rad2Deg;
-        //transform.rotation = Quaternion.AngleAxis(angle -90, Vector3.forward);
 
         progression += speed / 100;
 

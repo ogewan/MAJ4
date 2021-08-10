@@ -40,6 +40,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Bullets
+    uniqueID: 1279562749
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
