@@ -139,8 +139,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee540e133e5ad4e468277c509733d397, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 7118195306508383980, guid: 8ce2abbbad0d15344b92c679bef0961f, type: 3}
-  StartPosition: {fileID: 485846991}
+  rb: {fileID: 1524042026}
+  StartPosition: {fileID: 0}
 --- !u!1 &6662159381363690335
 GameObject:
   m_ObjectHideFlags: 0
