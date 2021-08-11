@@ -27,11 +27,11 @@ public class EnemyScript : MonoBehaviour
             countdown += Time.deltaTime;
         }
     }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if(other.tag == "player")
-        {
-            Debug.Log("Player Took DAMAGE");
-        }
-    }
+    // private void OnTriggerEnter2D(Collider2D other)
+    // {
+    //     if(other.tag == "player")
+    //     {
+    //         Debug.Log("Player Took DAMAGE");
+    //     }
+    // }
 }

@@ -137,3 +137,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedEnemy: 7
   TimeToDestroyEnemy: 2.5
+  Hearts: {fileID: 1361864215686777304, guid: 0b80e69689b42c345b7f934f94ea1338, type: 3}

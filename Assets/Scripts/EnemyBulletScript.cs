@@ -7,7 +7,12 @@ public class EnemyBulletScript : MonoBehaviour
     public float speedEnemy;
     private float TimeElapsedEnemy;
     public float TimeToDestroyEnemy;
+    private GameObject HeartsLL;
 
+    void Start() 
+    {
+      HeartsLL = GameObject.FindGameObjectWithTag("hearts");  
+    }
     void Update()
     {
        transform.Translate(Vector3.up * speedEnemy * Time.deltaTime);
@@ -27,8 +32,12 @@ public class EnemyBulletScript : MonoBehaviour
     {
         if(other.tag == "player")
         {
+            // Hearts.GetComponent<HealthSystem>().index -= 1;
+            // Destroy(Hearts.GetComponent<HealthSystem>().hearts[Hearts.GetComponent<HealthSystem>().index]);
+            HeartsLL.GetComponent<HealthSystem>().TakeDamage();
             Destroy(gameObject);
             Debug.Log("Player took DAMAGE");
+            
         } 
        else if(other.tag == "bulletPlayer")
         {
