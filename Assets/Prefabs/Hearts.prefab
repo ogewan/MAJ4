@@ -131,6 +131,7 @@ MonoBehaviour:
   - {fileID: 3409872676198897289}
   health: 5
   numOfHearts: 5
+  player: {fileID: 0}
   heartFull: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   heartLess: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!1 &1851746382518893966

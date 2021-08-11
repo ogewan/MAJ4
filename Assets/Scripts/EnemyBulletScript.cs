@@ -48,5 +48,9 @@ public class EnemyBulletScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        else if(other.tag == "defensebarriers")
+        {
+            Destroy(gameObject);
+        }
     }
 }
