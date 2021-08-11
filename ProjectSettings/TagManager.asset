@@ -40,9 +40,21 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Entity
+    uniqueID: 2757340217
+    locked: 0
   - name: Bullets
     uniqueID: 1279562749
     locked: 0
-  - name: Default
-    uniqueID: 0
+  - name: Walls
+    uniqueID: 2214537387
+    locked: 0
+  - name: Floor
+    uniqueID: 341615051
+    locked: 0
+  - name: Background
+    uniqueID: 4265157751
     locked: 0

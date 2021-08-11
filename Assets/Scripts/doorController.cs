@@ -4,53 +4,38 @@ using UnityEngine;
 
 public class doorController : MonoBehaviour
 {
-    public Transform leftHalf;
-    public Transform rightHalf;
+    public List<GameObject> doors;
+    public List<bool> open;
+    public List<GameObject> enemies;
 
-    public bool open;
-    public bool playedOpenAnim = false;
-    public bool playedCloseAnim = true;
+    void Start()
+    {
+        if (doors.Count != open.Count)
+        {
+            Debug.Log("Not every doors have a way of being enabled");
+        }
+    }
 
-    // Update is called once per frame
+
     void Update()
     {
-        if (open && !playedOpenAnim)
+        if (enemies[0] == null && enemies[1] == null)
         {
-            OpenAnim();
-            playedCloseAnim = false;
+            open[0] = true;
         }
-        if (!open && !playedCloseAnim)
+        if (enemies[2] == null && enemies[3] == null)
         {
-            CloseAnim();
-            playedOpenAnim = false;
+            open[1] = true;
         }
-    }
-
-    void OpenAnim()
-    {
-        Vector3 leftHalfPos = leftHalf.position + new Vector3(-leftHalf.localScale.x/2, -leftHalf.localScale.y/2, 0);
-        Vector3 rightHalfPos = rightHalf.position + new Vector3(-rightHalf.localScale.x/2, -rightHalf.localScale.y/2, 0);
-        for (float i = 2f; i > 0; i -= 0.001f)
+        for (int i = 0; i < doors.Count; i++)
         {
-            leftHalf.localScale = new Vector3(i, leftHalf.localScale.y, leftHalf.localScale.z);
-            leftHalf.localPosition = leftHalfPos + new Vector3(leftHalf.localScale.x/2, leftHalf.localScale.y/2, 0);
-            rightHalf.localScale = new Vector3(i, rightHalf.localScale.y, rightHalf.localScale.z);
-            rightHalf.localPosition = rightHalfPos + new Vector3(rightHalf.localScale.x/2, rightHalf.localScale.y/2, 0);
+            if (open[i])
+            {
+                doors[i].SetActive(false);
+            } else
+            {
+                doors[i].SetActive(true);
+            }
         }
-        playedOpenAnim = true;
-    }
-
-    void CloseAnim()
-    {
-        Vector3 leftHalfPos = leftHalf.position + new Vector3(-leftHalf.localScale.x/2, -leftHalf.localScale.y/2, 0);
-        Vector3 rightHalfPos = rightHalf.position + new Vector3(-rightHalf.localScale.x/2, -rightHalf.localScale.y/2, 0);
-        for (float i = 0; i < 2f; i += 0.001f)
-        {
-            leftHalf.localScale = new Vector3(i, leftHalf.localScale.y, leftHalf.localScale.z);
-            leftHalf.localPosition = leftHalfPos + new Vector3(leftHalf.localScale.x/2, leftHalf.localScale.y/2, 0);
-            rightHalf.localScale = new Vector3(i, rightHalf.localScale.y, rightHalf.localScale.z);
-            rightHalf.localPosition = rightHalfPos + new Vector3(rightHalf.localScale.x/2, rightHalf.localScale.y/2, 0);
-        }
-        playedCloseAnim = true;
     }
 }
