@@ -29,7 +29,13 @@ public class EnemyBulletScript : MonoBehaviour
         {
             Destroy(gameObject);
             Debug.Log("Player took DAMAGE");
-        } else if (other.tag == "wall")
+        } 
+       else if(other.tag == "bulletPlayer")
+        {
+            Destroy(gameObject);
+            Destroy(other.gameObject);
+        }
+       else if (other.tag == "wall")
         {
             Destroy(gameObject);
         }

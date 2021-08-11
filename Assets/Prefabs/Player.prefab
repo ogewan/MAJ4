@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56732df19ff364196a776cfcd2f8ee14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 1393201267341576289}
   speed: 10
 --- !u!50 &1524042026
 Rigidbody2D:
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 7118195306508383980, guid: 8ce2abbbad0d15344b92c679bef0961f, type: 3}
-  StartPosition: {fileID: 485846991}
+  ShootPosition: {fileID: 485846991}
   CanOpenTheDoor: 0
 --- !u!1 &3189211699485395180
 GameObject:
