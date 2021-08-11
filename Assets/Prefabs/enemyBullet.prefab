@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 791386360309735541}
   m_Layer: 0
   m_Name: enemyBullet
-  m_TagString: enemy
+  m_TagString: enemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -137,4 +137,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedEnemy: 7
   TimeToDestroyEnemy: 2.5
-  Hearts: {fileID: 1361864215686777304, guid: 0b80e69689b42c345b7f934f94ea1338, type: 3}

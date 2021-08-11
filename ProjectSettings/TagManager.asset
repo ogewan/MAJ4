@@ -6,6 +6,11 @@ TagManager:
   tags:
   - enemy
   - player
+  - bulletPlayer
+  - wall
+  - hearts
+  - score
+  - enemyBullet
   layers:
   - Default
   - TransparentFX
