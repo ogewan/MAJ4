@@ -51,4 +51,8 @@ public class HealthSystem : MonoBehaviour
     {
        health--;
     }
+    public void AddHealth()
+    {
+        health++;
+    }
 }

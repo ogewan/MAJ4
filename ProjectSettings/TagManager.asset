@@ -11,6 +11,8 @@ TagManager:
   - hearts
   - score
   - enemyBullet
+  - defenseBarrier
+  - defensebarriers
   layers:
   - Default
   - TransparentFX
