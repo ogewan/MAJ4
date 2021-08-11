@@ -23,11 +23,12 @@ public class CommandController : MonoBehaviour
         // Clear Input Field
         entry.text = string.Empty;
 
+        string response = Console.instance.Process(newText);
         if (display != null)
         {
             // No special formatting for first entry
             // Add line feed before each subsequent entries
-            display.text += $"{(display.text == string.Empty ? "" : "\n")}{newText}";
+            display.text += $"{(display.text == string.Empty ? "" : "\n")}{response}";
         }
 
         // Keep Chat input field active

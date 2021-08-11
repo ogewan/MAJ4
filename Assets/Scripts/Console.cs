@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class Console : MonoBehaviour
@@ -27,16 +28,21 @@ public class Console : MonoBehaviour
         {
             if (over == null)
             {
-                // This loads a prefab to create this singleton (This allows settings to be added in the editor via prefab)
-                /*GameObject example = Instantiate(Resources.Load<GameObject>("Example"));
-                example.isStatic = true;
-                example.name = "__example";*/
-                // Create via new GameObject
-                /*GameObject example = new GameObject("__example", typeof(Example))
+                Canvas canvas = FindObjectOfType<Canvas>();
+                EventSystem es = FindObjectOfType<EventSystem>();
+                if (canvas == null)
                 {
-                    isStatic = true
-                };*/
-                //_instance = example.GetComponent<Console>();
+                    canvas = new GameObject("Canvas", typeof(RectTransform), typeof(Canvas), typeof(CanvasScaler), typeof(GraphicRaycaster)).GetComponent<Canvas>();
+                    var scaler = canvas.gameObject.GetComponent<CanvasScaler>();
+                    scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+                }
+                if (es == null)
+                {
+                    es = new GameObject("Canvas", typeof(EventSystem), typeof(StandaloneInputModule)).GetComponent<EventSystem>();
+                }
+                // This loads a prefab to create this singleton (This allows settings to be added in the editor via prefab)
+                GameObject consoleObject = Instantiate(Resources.Load<GameObject>("Console Commands"), canvas.transform);
+                _instance = consoleObject.GetComponent<Console>();
             }
             else _instance = over;
         }
@@ -44,8 +50,22 @@ public class Console : MonoBehaviour
     }
     public void SelectObject(GameObject select)
     {
-        selected = select;
-        selectionText.text = selected.name;
+        if (ccActive)
+        {
+            selected = select;
+            selectionText.text = selected.name;
+        }
+    }
+    public string Process(string input)
+    {
+        switch (input)
+        {
+            case "Help":
+                {
+                    break;
+                }
+        }
+        return input;
     }
     private static Console _instance;
 
