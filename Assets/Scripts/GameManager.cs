@@ -10,7 +10,7 @@ using UnityEngine;
  */
 public class GameManager : MonoBehaviour
 {
-    public GameObject pauseMenu;
+    //public PauseMenu pauseMenu;
     public bool ccAllowed;
     public static GameManager instance => Instance();
     public static GameManager Instance(GameManager over = null)
@@ -39,31 +39,15 @@ public class GameManager : MonoBehaviour
         float moveX = Input.GetAxis("Horizontal");
         float moveY = Input.GetAxis("Vertical");
         bool hasPause = pauseMenu != null;
-        if (ccAllowed && Input.GetKeyDown(KeyCode.BackQuote))
+        if (ccAllowed && Input.GetKeyDown(KeyCode.C))
         {
             Console.instance.ToggleConsole();
         }
         if (hasPause && Input.GetKeyDown(KeyCode.Escape))
         {
-            if (pauseMenu.activeSelf)
-            {
-                pauseMenu.SetActive(false);
-                background.SetActive(false);
-                game.SetActive(true);
-            }
-            else if (optionsMenu.activeSelf)
-            {
-                pauseMenu.SetActive(true);
-                optionsMenu.SetActive(false);
-            }
-            else
-            {
-                pauseMenu.SetActive(true);
-                background.SetActive(true);
-                game.SetActive(false);
-            }
+            //pauseMenu.Toggle();
         }
-        */
+
         /*mousePos = Input.mousePosition;
         objectPos = Camera.main.WorldToScreenPoint(transform.position);
         angle = Mathf.Atan2(mousePos.y - objectPos.y, mousePos.x - objectPos.x) * Mathf.Rad2Deg - 90.0f;
