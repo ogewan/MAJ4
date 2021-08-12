@@ -9,10 +9,12 @@ public class BulletMovement : MonoBehaviour
 
     private float TimeElapsed;
     public float TimeToDestroy;
+    private GameObject scores;
 
      void Start()
     {
      TimeElapsed = 0f;
+    scores = GameObject.FindGameObjectWithTag("score");
 
     }
     void Update()
@@ -33,6 +35,7 @@ public class BulletMovement : MonoBehaviour
     {
         if(other.tag == "enemy")
         {
+            scores.GetComponent<ScoreScript>().ChangeScore();
             Destroy(gameObject);
             Destroy(other.gameObject);
         }
