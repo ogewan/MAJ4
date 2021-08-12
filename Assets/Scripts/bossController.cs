@@ -44,12 +44,12 @@ public class bossController : MonoBehaviour
         {
             ramTimerCD -= Time.deltaTime;
         }
-        if (health == 0)
+        if (health <= 0)
         {
             Destroy(gameObject);
         }
     }
-    private void OnColliderEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "bulletPlayer")
         {
