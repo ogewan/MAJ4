@@ -196,9 +196,5 @@ public class Console : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.BackQuote))
-        {
-            ToggleConsole();
-        }
     }
 }
