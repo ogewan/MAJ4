@@ -4,29 +4,59 @@ using UnityEngine;
 
 public class bossController : MonoBehaviour
 {
-    private float countdown;
-    private float countdown2;
     public float TimeToRam;
     public Transform player;
     public float ramDistance = 10f;
     public float speed = 1f;
-
-
-    void Update()
+    public bool trackPlayer = false;
+    public Vector2 timeToRam;
+    public float rammingTime = 5f;
+    public float ramSpeed = 5f;
+    private bool isRamming;
+    private float ramTimerCD;
+    private float rammingTimerCD;
+    private float countdown2;
+    private void Start()
     {
-
+        ramTimerCD = Random.Range(timeToRam.x, timeToRam.y);
+    }
+    private void Update()
+    {
+        if (ramTimerCD < 0)
+        {
+            if (!isRamming)
+            {
+                transform.right = player.position - transform.position;
+                isRamming = true;
+                rammingTimerCD = rammingTime;
+            }
+            else if (trackPlayer) transform.right = player.position - transform.position;
+            transform.Translate(Vector3.right * ramSpeed * Time.deltaTime);
+            if (rammingTimerCD < 0)
+            {
+                ramTimerCD = Random.Range(timeToRam.x, timeToRam.y);
+                isRamming = false;
+            }
+            else
+            {
+                rammingTimerCD -= Time.deltaTime;
+            }
+        }
+        else
+        {
+            ramTimerCD -= Time.deltaTime;
+        }
     }
 
-    IEnumarator bossLoop()
+    /*private IEnumarator bossLoop()
     {
         Vector3 dir = player.position - transform.position;
-        float angle = Mathf.Atan2(dir.y,dir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle -90, Vector3.forward);
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
         dir.Normalize();
         dir *= ramDistance;
 
-
-        if(TimeToRam < countdown)
+        if (TimeToRam < countdown)
         {
             float dist = ramDistance;
             while (dist > 0)
@@ -39,5 +69,5 @@ public class bossController : MonoBehaviour
         {
             countdown += Time.deltaTime;
         }
-    }
+    }*/
 }
