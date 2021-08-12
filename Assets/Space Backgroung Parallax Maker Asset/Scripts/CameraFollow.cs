@@ -31,8 +31,8 @@ namespace Mkey
         void Awake()
         {
             if(!player)  player = GameObject.FindGameObjectWithTag("Player");
-            margin = new Vector2(3, 3);
-            smooth = new Vector2(1, 1);
+            margin = new Vector2(2, 2);
+            smooth = new Vector2(3, 3);
 
             m_camera = GetComponent<Camera>();
             Instance = this;
@@ -112,10 +112,10 @@ namespace Mkey
             float targetY = transform.position.y;
 
             if (OutOfXMargin)
-                targetX = Mathf.Lerp(transform.position.x, player.transform.position.x, smooth.x * Time.deltaTime);
+                targetX = Mathf.Lerp(transform.position.x, player.transform.position.x, (smooth.x / 2) * Time.deltaTime);
 
             if (OutOfYMargin)
-                targetY = Mathf.Lerp(transform.position.y, player.transform.position.y, smooth.y * Time.deltaTime);
+                targetY = Mathf.Lerp(transform.position.y, player.transform.position.y, (smooth.y / 2) * Time.deltaTime);
             transform.position = new Vector3(targetX, targetY, transform.position.z);
             ClampCameraPosInField();
         }
