@@ -2,25 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class PlayerShooting : MonoBehaviour
 {
     public Rigidbody2D rb;
     public Transform StartPosition;
     public bool CanOpenTheDoor = false;
-    
-    
 
-    
-    void Update()
+    private void Update()
     {
-        if(Input.GetKeyDown("space"))
+        if (Input.GetKeyDown("space"))
         {
             Instantiate(rb, StartPosition.position, StartPosition.rotation);
         }
-        if(CanOpenTheDoor == true)
+        if (CanOpenTheDoor == true)
         {
             Debug.Log("Can Open DOOR");
         }
-        
     }
 }

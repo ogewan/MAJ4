@@ -2,19 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class PlayerMovement : MonoBehaviour
 {
     public Transform spawnPoint;
     public float speed = 10f;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         transform.position = spawnPoint.position;
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         float moveX = Input.GetAxis("Horizontal");
         float moveY = Input.GetAxis("Vertical");

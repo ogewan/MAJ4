@@ -609,7 +609,7 @@ MonoBehaviour:
   m_HideSoftKeyboard: 0
   m_CharacterValidation: 0
   m_RegexValue: 
-  m_GlobalPointSize: 50
+  m_GlobalPointSize: 22
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
@@ -733,7 +733,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &141395967
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1025,7 +1025,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Selected Item
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1183,7 +1183,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 292653714}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 540284804}
+        m_TargetAssemblyTypeName: Console, Assembly-CSharp
+        m_MethodName: EditorQuit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &292653714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1660,7 +1672,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: selected.asset
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1991,6 +2003,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ccActive: 0
   selected: {fileID: 0}
+  disabled: []
+  enableMode: 0
   consoleBackground: {fileID: 1869527411}
   commandWindow: {fileID: 141395966}
   entry: {fileID: 686437756}
@@ -2001,6 +2015,7 @@ MonoBehaviour:
   editorWindow: {fileID: 651359558}
   editor: {fileID: 50662317}
   editorText: {fileID: 1741938413}
+  editorSelectionText: {fileID: 350482866}
 --- !u!1001 &635542582
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2468,7 +2483,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 703913158}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 540284804}
+        m_TargetAssemblyTypeName: Console, Assembly-CSharp
+        m_MethodName: Unselect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &703913158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2692,6 +2719,43 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1700168847542582017, guid: def6944fbcd394d17ab0a32215ce2b04, type: 3}
   m_PrefabInstance: {fileID: 861703371}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &928195973 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1524042023, guid: def6944fbcd394d17ab0a32215ce2b04, type: 3}
+  m_PrefabInstance: {fileID: 861703371}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 928195972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee540e133e5ad4e468277c509733d397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!50 &928195974 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 1524042026, guid: def6944fbcd394d17ab0a32215ce2b04, type: 3}
+  m_PrefabInstance: {fileID: 861703371}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &928195975 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2979497259917031112, guid: def6944fbcd394d17ab0a32215ce2b04, type: 3}
+  m_PrefabInstance: {fileID: 861703371}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 928195972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56732df19ff364196a776cfcd2f8ee14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &928195976 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 239223786, guid: def6944fbcd394d17ab0a32215ce2b04, type: 3}
+  m_PrefabInstance: {fileID: 861703371}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &928195977 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1393201267341576289, guid: def6944fbcd394d17ab0a32215ce2b04, type: 3}
+  m_PrefabInstance: {fileID: 861703371}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &928195978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2704,6 +2768,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cfcdb0cc186d5f479355ac3cf10ba08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reset: 1
+  enable: 1
+  disable: 1
+  read: 1
+  edit: 0
+  edited: 0
+  components:
+  - {fileID: 928195977}
+  - {fileID: 928195976}
+  - {fileID: 928195975}
+  - {fileID: 928195974}
+  - {fileID: 928195973}
 --- !u!1 &965670722
 GameObject:
   m_ObjectHideFlags: 0
@@ -3446,7 +3522,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1349133049}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 540284804}
+        m_TargetAssemblyTypeName: Console, Assembly-CSharp
+        m_MethodName: ToggleConsole
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1349133049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3743,7 +3831,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4136,7 +4224,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4153,8 +4241,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4257,7 +4345,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1869527412
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4432,8 +4520,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
