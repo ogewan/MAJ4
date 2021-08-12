@@ -880,6 +880,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!4 &380564825 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 485846991, guid: def6944fbcd394d17ab0a32215ce2b04, type: 3}
+  m_PrefabInstance: {fileID: 383546283}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &383546283
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1796,37 +1801,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5431875854448912293, guid: 814304206d6d043a7a9fd6b020d56c0e, type: 3}
   m_PrefabInstance: {fileID: 601735073}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1239338686 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6302235628811147521, guid: f11304ab2d90e4e719a0a2607213e34a, type: 3}
-  m_PrefabInstance: {fileID: 2058178177}
-  m_PrefabAsset: {fileID: 0}
---- !u!61 &1239338687
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1239338686}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1 &1253537314
 GameObject:
   m_ObjectHideFlags: 0
@@ -2584,26 +2558,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 578931316}
     m_Modifications:
-    - target: {fileID: 1077912025163151345, guid: f11304ab2d90e4e719a0a2607213e34a, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1393145004172883727, guid: f11304ab2d90e4e719a0a2607213e34a, type: 3}
-      propertyPath: m_BodyType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1393145004172883727, guid: f11304ab2d90e4e719a0a2607213e34a, type: 3}
-      propertyPath: m_Constraints
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1393145004172883727, guid: f11304ab2d90e4e719a0a2607213e34a, type: 3}
-      propertyPath: m_GravityScale
-      value: 0
+    - target: {fileID: 2396687142689173312, guid: f11304ab2d90e4e719a0a2607213e34a, type: 3}
+      propertyPath: health
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2396687142689173312, guid: f11304ab2d90e4e719a0a2607213e34a, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1491642473}
+      objectReference: {fileID: 380564825}
     - target: {fileID: 2582520211919699882, guid: f11304ab2d90e4e719a0a2607213e34a, type: 3}
       propertyPath: m_RootOrder
       value: 24
@@ -2652,14 +2614,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1491642473}
-    - target: {fileID: 3180704741564094934, guid: f11304ab2d90e4e719a0a2607213e34a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5219716847715609585, guid: f11304ab2d90e4e719a0a2607213e34a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.1
-      objectReference: {fileID: 0}
     - target: {fileID: 5559755540299048837, guid: f11304ab2d90e4e719a0a2607213e34a, type: 3}
       propertyPath: player
       value: 
@@ -2667,18 +2621,6 @@ PrefabInstance:
     - target: {fileID: 6302235628811147521, guid: f11304ab2d90e4e719a0a2607213e34a, type: 3}
       propertyPath: m_Name
       value: EnemyBoss
-      objectReference: {fileID: 0}
-    - target: {fileID: 8575267987860505896, guid: f11304ab2d90e4e719a0a2607213e34a, type: 3}
-      propertyPath: m_BodyType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8575267987860505896, guid: f11304ab2d90e4e719a0a2607213e34a, type: 3}
-      propertyPath: m_Constraints
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8575267987860505896, guid: f11304ab2d90e4e719a0a2607213e34a, type: 3}
-      propertyPath: m_GravityScale
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f11304ab2d90e4e719a0a2607213e34a, type: 3}
