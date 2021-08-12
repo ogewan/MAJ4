@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3789717070639125535
+--- !u!1 &3887241747919403259
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6097404513228702126}
-  - component: {fileID: 7241191075145895254}
+  - component: {fileID: 3887241747919403257}
+  - component: {fileID: 3887241747919403258}
   m_Layer: 0
-  m_Name: Registry
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6097404513228702126
+--- !u!4 &3887241747919403257
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3789717070639125535}
+  m_GameObject: {fileID: 3887241747919403259}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,22 +31,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7241191075145895254
+--- !u!114 &3887241747919403258
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3789717070639125535}
+  m_GameObject: {fileID: 3887241747919403259}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f05fc114538cfc04e83feb9300c19a07, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d45a27d66fc57f42adbc956e36094cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabs:
-    list:
-    - Key: ConsoleCommands
-      Value: {fileID: 3698093952986710749, guid: 7a51460db7caaba4e8e0b5c7ada97f8b, type: 3}
-    - Key: BaseCanvas
-      Value: {fileID: 3951620993180781303, guid: 920cd627711ff854ab047f09e8d2da25, type: 3}
-    keyCollision: 0
+  pauseMenu: {fileID: 0}
+  ccAllowed: 0

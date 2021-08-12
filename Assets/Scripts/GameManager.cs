@@ -10,7 +10,7 @@ using UnityEngine;
  */
 public class GameManager : MonoBehaviour
 {
-    //public PauseMenu pauseMenu;
+    public Pause pauseMenu;
     public bool ccAllowed;
     public static GameManager instance => Instance();
     public static GameManager Instance(GameManager over = null)
@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
         }
         if (hasPause && Input.GetKeyDown(KeyCode.Escape))
         {
-            //pauseMenu.Toggle();
+            pauseMenu.TogglePause();
         }
 
         /*mousePos = Input.mousePosition;

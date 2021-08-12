@@ -36,13 +36,12 @@ public class Console : MonoBehaviour
                 EventSystem es = FindObjectOfType<EventSystem>();
                 if (canvas == null)
                 {
-                    canvas = new GameObject("Canvas", typeof(RectTransform), typeof(Canvas), typeof(CanvasScaler), typeof(GraphicRaycaster)).GetComponent<Canvas>();
-                    var scaler = canvas.gameObject.GetComponent<CanvasScaler>();
-                    scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+                    canvas = Instantiate(Registry.instance.prefabs["BaseCanvas"]).GetComponent<Canvas>();
                 }
-                if (es == null)
+                else if (es == null)
                 {
                     es = new GameObject("Canvas", typeof(EventSystem), typeof(StandaloneInputModule)).GetComponent<EventSystem>();
+                    es.transform.parent = canvas.transform;
                 }
                 // This loads a prefab to create this singleton (This allows settings to be added in the editor via prefab)
                 GameObject consoleObject = Instantiate(Registry.instance.prefabs["ConsoleCommands"], canvas.transform);
@@ -164,7 +163,11 @@ public class Console : MonoBehaviour
     }
     public void ToggleConsole()
     {
-        ccActive = !ccActive;
+        ControlConsole(!ccActive);
+    }
+    public void ControlConsole(bool status)
+    {
+        ccActive = status;
         consoleBackground.SetActive(ccActive);
         commandWindow.SetActive(ccActive);
         editorWindow.SetActive(false);
