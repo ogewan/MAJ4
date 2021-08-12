@@ -6,6 +6,13 @@ TagManager:
   tags:
   - enemy
   - player
+  - bulletPlayer
+  - wall
+  - hearts
+  - score
+  - enemyBullet
+  - defenseBarrier
+  - defensebarriers
   layers:
   - Default
   - TransparentFX

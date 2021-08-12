@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class PlayerShooting : MonoBehaviour
 {
     public Rigidbody2D rb;
