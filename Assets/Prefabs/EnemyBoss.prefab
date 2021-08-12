@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 2396687142689173312}
   - component: {fileID: 1077912025163151345}
   - component: {fileID: 632328130260058218}
+  - component: {fileID: 4449982906395438313}
   m_Layer: 0
   m_Name: EnemyBoss
   m_TagString: Untagged
@@ -131,8 +132,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e21333a80cbd43f08cd1d7524b2c596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeToRam: 5
   player: {fileID: 0}
+  trackPlayer: 0
+  timeToRam: {x: 0, y: 0}
+  rammingTime: 5
+  ramSpeed: 5
+  health: 5
 --- !u!61 &1077912025163151345
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -180,6 +185,32 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!61 &4449982906395438313
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6302235628811147521}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.01934421, y: -0.5077857}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.0117986, y: 2.0155714}
+  m_EdgeRadius: 0
 --- !u!1001 &1304308137489978218
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -197,11 +228,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4485012707252751036, guid: 814304206d6d043a7a9fd6b020d56c0e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4485012707252751036, guid: 814304206d6d043a7a9fd6b020d56c0e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4485012707252751036, guid: 814304206d6d043a7a9fd6b020d56c0e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -235,6 +266,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyTurret
       objectReference: {fileID: 0}
+    - target: {fileID: 5431875854448912293, guid: 814304206d6d043a7a9fd6b020d56c0e, type: 3}
+      propertyPath: m_TagString
+      value: enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859524713383015663, guid: 814304206d6d043a7a9fd6b020d56c0e, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 7251752825437011166, guid: 80c070912ac5a394f97bcbee0a9115e4, type: 3}
+    - target: {fileID: 6859524713383015663, guid: 814304206d6d043a7a9fd6b020d56c0e, type: 3}
+      propertyPath: TimeToShoot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7284763275056223810, guid: 814304206d6d043a7a9fd6b020d56c0e, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7284763275056223810, guid: 814304206d6d043a7a9fd6b020d56c0e, type: 3}
+      propertyPath: m_Constraints
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7284763275056223810, guid: 814304206d6d043a7a9fd6b020d56c0e, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9158335533727250877, guid: 814304206d6d043a7a9fd6b020d56c0e, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 814304206d6d043a7a9fd6b020d56c0e, type: 3}
 --- !u!4 &3180704741564094934 stripped
@@ -259,11 +318,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4485012707252751036, guid: 814304206d6d043a7a9fd6b020d56c0e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4485012707252751036, guid: 814304206d6d043a7a9fd6b020d56c0e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4485012707252751036, guid: 814304206d6d043a7a9fd6b020d56c0e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -296,6 +355,34 @@ PrefabInstance:
     - target: {fileID: 5431875854448912293, guid: 814304206d6d043a7a9fd6b020d56c0e, type: 3}
       propertyPath: m_Name
       value: EnemyTurret (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5431875854448912293, guid: 814304206d6d043a7a9fd6b020d56c0e, type: 3}
+      propertyPath: m_TagString
+      value: enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859524713383015663, guid: 814304206d6d043a7a9fd6b020d56c0e, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 7251752825437011166, guid: 80c070912ac5a394f97bcbee0a9115e4, type: 3}
+    - target: {fileID: 6859524713383015663, guid: 814304206d6d043a7a9fd6b020d56c0e, type: 3}
+      propertyPath: TimeToShoot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7284763275056223810, guid: 814304206d6d043a7a9fd6b020d56c0e, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7284763275056223810, guid: 814304206d6d043a7a9fd6b020d56c0e, type: 3}
+      propertyPath: m_Constraints
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7284763275056223810, guid: 814304206d6d043a7a9fd6b020d56c0e, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9158335533727250877, guid: 814304206d6d043a7a9fd6b020d56c0e, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 814304206d6d043a7a9fd6b020d56c0e, type: 3}

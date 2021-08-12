@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class bossController : MonoBehaviour
 {
-    public float TimeToRam;
     public Transform player;
-    public float ramDistance = 10f;
-    public float speed = 1f;
     public bool trackPlayer = false;
     public Vector2 timeToRam;
     public float rammingTime = 5f;
@@ -16,6 +13,7 @@ public class bossController : MonoBehaviour
     private float ramTimerCD;
     private float rammingTimerCD;
     private float countdown2;
+    public int health = 5;
     private void Start()
     {
         ramTimerCD = Random.Range(timeToRam.x, timeToRam.y);
@@ -30,8 +28,8 @@ public class bossController : MonoBehaviour
                 isRamming = true;
                 rammingTimerCD = rammingTime;
             }
-            else if (trackPlayer) transform.right = player.position - transform.position;
-            transform.Translate(Vector3.right * ramSpeed * Time.deltaTime);
+            else if (trackPlayer) transform.up = player.position - transform.position;
+            transform.Translate(Vector3.up * ramSpeed * Time.deltaTime);
             if (rammingTimerCD < 0)
             {
                 ramTimerCD = Random.Range(timeToRam.x, timeToRam.y);
@@ -46,28 +44,17 @@ public class bossController : MonoBehaviour
         {
             ramTimerCD -= Time.deltaTime;
         }
+        if (health == 0)
+        {
+            Destroy(gameObject);
+        }
     }
-
-    /*private IEnumarator bossLoop()
+    private void OnColliderEnter2D(Collider2D other)
     {
-        Vector3 dir = player.position - transform.position;
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
-        dir.Normalize();
-        dir *= ramDistance;
-
-        if (TimeToRam < countdown)
+        if (other.tag == "bulletPlayer")
         {
-            float dist = ramDistance;
-            while (dist > 0)
-            {
-                transform.position = transform.position + dir * speed * Time.deltaTime;
-            }
-            countdown = 0f;
+            health--;
+            Debug.Log("Boss damaged");
         }
-        else
-        {
-            countdown += Time.deltaTime;
-        }
-    }*/
+    }
 }
