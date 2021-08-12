@@ -45,7 +45,7 @@ public class Console : MonoBehaviour
                     es = new GameObject("Canvas", typeof(EventSystem), typeof(StandaloneInputModule)).GetComponent<EventSystem>();
                 }
                 // This loads a prefab to create this singleton (This allows settings to be added in the editor via prefab)
-                GameObject consoleObject = Instantiate(Resources.Load<GameObject>("Console Commands"), canvas.transform);
+                GameObject consoleObject = Instantiate(Registry.instance.prefabs["ConsoleCommands"], canvas.transform);
                 _instance = consoleObject.GetComponent<Console>();
             }
             else _instance = over;
