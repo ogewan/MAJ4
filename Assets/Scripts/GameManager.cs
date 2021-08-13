@@ -10,7 +10,9 @@ using UnityEngine;
  */
 public class GameManager : MonoBehaviour
 {
+    public int playerHealth = 5;
     public Pause pauseMenu;
+    public HealthUI hp;
     public bool ccAllowed;
     public static GameManager instance => Instance();
     public static GameManager Instance(GameManager over = null)
@@ -28,11 +30,24 @@ public class GameManager : MonoBehaviour
         }
         return _instance;
     }
+    public void TakeDamage()
+    {
+        playerHealth--;
+        hp.ShowHealth(playerHealth);
+    }
+    public void AddHealth()
+    {
+        playerHealth++;
+        hp.ShowHealth(playerHealth);
+    }
     private static GameManager _instance;
     private void Start()
     {
         if (Instance(this) != this) Destroy(this);
-        else DontDestroyOnLoad(this);
+        else
+        {
+            DontDestroyOnLoad(this);
+        }
     }
     private void Update()
     {

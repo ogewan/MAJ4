@@ -34,7 +34,7 @@ public class EnemyBulletScript : MonoBehaviour
             // Destroy(Hearts.GetComponent<HealthSystem>().hearts[Hearts.GetComponent<HealthSystem>().index]);
             //HeartsLL.GetComponent<HealthSystem>().TakeDamage();
             //Destroy(gameObject);
-            Debug.Log("Player took DAMAGE");
+            //Debug.Log("Player took DAMAGE");
         }
         else if (other.tag == "bulletPlayer")
         {

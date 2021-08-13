@@ -24,9 +24,17 @@ public class Pause : MonoBehaviour
         optionWindow.SetActive(true);
         pauseWindow.SetActive(false);
     }
+    private void RegisterPause()
+    {
+        GameManager.instance.pauseMenu = this;
+    }
     //lazy dirty hack
     private void Update()
     {
         if (pauseActive && !optionWindow.activeInHierarchy && !pauseWindow.activeInHierarchy) pauseWindow.SetActive(true);
+    }
+    private void Start()
+    {
+        RegisterPause();
     }
 }

@@ -45,6 +45,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabs:
     list:
+    - Key: GameManager
+      Value: {fileID: 3887241747919403259, guid: 7041da54015ab444db1133d504829204, type: 3}
     - Key: ConsoleCommands
       Value: {fileID: 3698093952986710749, guid: 7a51460db7caaba4e8e0b5c7ada97f8b, type: 3}
     - Key: BaseCanvas

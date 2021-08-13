@@ -22,7 +22,7 @@ public class Registry : MonoBehaviour
             if (over == null)
             {
                 // This loads a prefab to create this singleton (This allows settings to be added in the editor via prefab)
-                GameObject registry = Instantiate(Resources.Load<GameObject>("PrefabRegistry"));
+                GameObject registry = Instantiate(Resources.Load<GameObject>("Registry"));
                 _instance = registry.GetComponent<Registry>();
             }
             else _instance = over;
