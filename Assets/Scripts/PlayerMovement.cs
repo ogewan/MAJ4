@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Movement(Vector3 move)
     {
-        transform.Translate(move * speed * Time.deltaTime);
+        transform.position += move * speed * Time.deltaTime;
     }
     // Start is called before the first frame update
     private void Start()
