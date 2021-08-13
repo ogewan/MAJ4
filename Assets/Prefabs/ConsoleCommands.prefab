@@ -1501,6 +1501,7 @@ MonoBehaviour:
   selected: {fileID: 0}
   disabled: []
   enableMode: 0
+  reloadMode: 0
   consoleBackground: {fileID: 3698093951724661804}
   commandWindow: {fileID: 3698093953385665185}
   entry: {fileID: 3698093952840572963}
@@ -1512,6 +1513,8 @@ MonoBehaviour:
   editor: {fileID: 3698093953543446258}
   editorText: {fileID: 3698093951852268466}
   editorSelectionText: {fileID: 3698093953176626413}
+  note: 
+  cctrl: {fileID: 3698093952347671154}
 --- !u!1 &3698093953108103103
 GameObject:
   m_ObjectHideFlags: 0

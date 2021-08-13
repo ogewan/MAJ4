@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3887241747919403258}
   - component: {fileID: 393954675}
   - component: {fileID: 393954676}
+  - component: {fileID: 2612735373942063963}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -45,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d45a27d66fc57f42adbc956e36094cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 0
+  level: {fileID: 0}
   playerHealth: 5
   clock: 0
   score: 0
@@ -55,6 +56,7 @@ MonoBehaviour:
   scoreDisplay: {fileID: 0}
   timerDisplay: {fileID: 0}
   ccAllowed: 0
+  consoleLoaded: 0
   gameStart: 0
   inPause: 0
   inConsole: 0
@@ -96,3 +98,17 @@ MonoBehaviour:
   - {fileID: 3887241747919403257}
   - {fileID: 3887241747919403258}
   original: 
+--- !u!114 &2612735373942063963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3887241747919403259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b0b33509956ca94fa3726a14cbecf06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelPasswordList: []
+  levelNameList: []

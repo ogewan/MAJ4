@@ -11,7 +11,7 @@ using UnityEngine;
 [System.Serializable]
 public class GameManager : MonoBehaviour
 {
-    public int level;
+    public LevelData level;
     public int playerHealth = 5;
     public float clock;
     public int score;
@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public ScoreUI scoreDisplay;
     public TimerUI timerDisplay;
     public bool ccAllowed;
+    public bool consoleLoaded = false;
 
     public bool gameStart = false;
     public bool inPause = false;
@@ -64,7 +65,26 @@ public class GameManager : MonoBehaviour
         score += val;
         scoreDisplay.UpdateScore();
     }
+
+    public string GetLevel(int level)
+    {
+        return (level >= 0 && level < levelPasswordList.Count) ? levelPasswordList[level] : "";
+    }
+    public void SetPassList(List<string> passList)
+    {
+        levelPasswordList = passList;
+    }
+    public void SetNameList(List<string> nameList)
+    {
+        levelNameList = nameList;
+    }
+    public string LoadLevel(int level)
+    {
+        return (level >= 0 && level < levelNameList.Count) ? levelNameList[level] : "";
+    }
     private static GameManager _instance;
+    private List<string> levelPasswordList = new List<string> { };
+    private List<string> levelNameList = new List<string> { };
     private void Awake()
     {
         if (Instance(this) != this) Destroy(gameObject);

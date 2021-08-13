@@ -8,17 +8,7 @@ public class CommandController : MonoBehaviour
     public TextMeshProUGUI display;
     public Scrollbar displaySB;
 
-    private void OnEnable()
-    {
-        entry.onSubmit.AddListener(AddToChatOutput);
-    }
-
-    private void OnDisable()
-    {
-        entry.onSubmit.RemoveListener(AddToChatOutput);
-    }
-
-    private void AddToChatOutput(string newText)
+    public void AddToChatOutput(string newText)
     {
         // Clear Input Field
         entry.text = string.Empty;
@@ -36,5 +26,14 @@ public class CommandController : MonoBehaviour
 
         // Set the scrollbar to the bottom when next text is submitted.
         displaySB.value = 0;
+    }
+    private void OnEnable()
+    {
+        entry.onSubmit.AddListener(AddToChatOutput);
+    }
+
+    private void OnDisable()
+    {
+        entry.onSubmit.RemoveListener(AddToChatOutput);
     }
 }
