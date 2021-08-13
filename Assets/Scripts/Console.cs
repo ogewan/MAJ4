@@ -192,9 +192,9 @@ public class Console : MonoBehaviour
         }
         return list;
     }
-    private void Start()
+    private void Awake()
     {
-        if (Instance(this) != this) Destroy(this);
+        if (Instance(this) != this) Destroy(gameObject);
         //else DontDestroyOnLoad(this);
     }
     private void Update()

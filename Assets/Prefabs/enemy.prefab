@@ -208,10 +208,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84047f349c8d6a8479e51a6a57267a04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 7251752825437011166, guid: 80c070912ac5a394f97bcbee0a9115e4, type: 3}
+  rb: {fileID: 4287680615988525542, guid: 0b50f44185608e64ca30dcbbc676036b, type: 3}
   ShootPoint: {fileID: 20001214855663271}
-  TimeToShoot: 3
-  player: {fileID: 1393201267341576289, guid: def6944fbcd394d17ab0a32215ce2b04, type: 3}
+  shootTime: 0
+  damageOnContact: 0
+  selfDamageOnContact: 0
+  reward: 5
+  crashReward: 0
 --- !u!114 &532777857
 MonoBehaviour:
   m_ObjectHideFlags: 0

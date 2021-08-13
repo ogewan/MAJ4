@@ -13,6 +13,7 @@ TagManager:
   - enemyBullet
   - defenseBarrier
   - defensebarriers
+  - bullet
   layers:
   - Default
   - TransparentFX

@@ -16,12 +16,12 @@ public class HealthUI : MonoBehaviour
             healthIndicators[i].gameObject.SetActive(hp <= i);
         }
     }
-    private void RegisterhealthBar()
+    private void RegisterHealthBar()
     {
-        GameManager.instance.hp = this;
+        GameManager.instance.healthDisplay = this;
     }
     private void Start()
     {
-        RegisterhealthBar();
+        RegisterHealthBar();
     }
 }

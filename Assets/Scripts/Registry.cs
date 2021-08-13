@@ -30,9 +30,9 @@ public class Registry : MonoBehaviour
         return _instance;
     }
     private static Registry _instance;
-    private void Start()
+    private void Awake()
     {
-        if (Instance(this) != this) Destroy(this);
+        if (Instance(this) != this) Destroy(gameObject);
         else DontDestroyOnLoad(this);
     }
 }

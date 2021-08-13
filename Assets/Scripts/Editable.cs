@@ -77,7 +77,6 @@ public class Editable : MonoBehaviour, IPointerClickHandler
     };
     private bool JsonToComponentDataBackup(string jsonType, string jsonData)
     {
-        // dynType = Type.GetType($"{jsonType}Data", false);
         dataType.TryGetValue(jsonType, out Type dynType);
         if (dynType != null)
         {
@@ -89,7 +88,6 @@ public class Editable : MonoBehaviour, IPointerClickHandler
     }
     private string ComponentDataToJsonBackup(string strType, Component comp)
     {
-        //var dynType = Type.GetType($"{strType}Data", false);
         dataType.TryGetValue($"{strType}Data", out Type dynType);
         if (dynType != null)
         {
@@ -107,6 +105,7 @@ public class Editable : MonoBehaviour, IPointerClickHandler
             var comp = components[i];
             try
             {
+                // BUG: Original is set after serializaion so the field is wiped when loaded
                 data += $"{(data.Length == 0 ? "" : "\n")}[{comp.GetType().Name}]\n{JsonUtility.ToJson(comp, true)}";
             }
             catch
@@ -147,12 +146,17 @@ public class Editable : MonoBehaviour, IPointerClickHandler
                     startJson = false;
                     try
                     {
-                        JsonUtility.FromJsonOverwrite(resultJson, GetComponent(Type.GetType(resultType, false)));
-                        edited = true;
+                        bool backupSuccess = false;
+                        dataType.TryGetValue(resultType, out Type backupType);
+                        //Not in data dict, because serializable natively
+                        if (backupType == null) JsonUtility.FromJsonOverwrite(resultJson, GetComponent(Type.GetType(resultType, false)));
+                        else backupSuccess = JsonToComponentDataBackup(resultType, resultJson);
+
+                        if (backupType == null || backupSuccess) edited = true;
+                        else error += $"Object of Type '{resultType}' could not be parsed: {resultJson}";
                     }
                     catch (Exception ex)
                     {
-                        if (!JsonToComponentDataBackup(resultType, resultJson)) error += $"Object of Type '{resultType}' could not be parsed: {resultJson}";
                         //+ $"\n{ex.ToString()}";
                     }
                     resultJson = "";

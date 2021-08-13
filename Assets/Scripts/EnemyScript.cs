@@ -1,37 +1,55 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static GameManager;
 
 public class EnemyScript : MonoBehaviour
 {
-    public Rigidbody2D rb;
+    //public Rigidbody2D rb;
+    public GameObject rb;
     public Transform ShootPoint;
-    private float countdown;
-    public float TimeToShoot;
-    public Transform player;
-
-
-    void Update()
+    public float shootTime;
+    public bool damageOnContact;
+    public bool selfDamageOnContact;
+    public int reward = 5;
+    public int crashReward = 0;
+    public void Damage(int val = 1)
     {
+        Destroy(gameObject);
+    }
+    private float shootTimeCD;
+    private void Update()
+    {
+        Transform player = instance.player.transform;
         Vector3 dir = player.position - transform.position;
-        float angle = Mathf.Atan2(dir.y,dir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle -90, Vector3.forward);
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
 
-        if(TimeToShoot < countdown)
+        if (shootTimeCD <= 0)
         {
-           Instantiate(rb, ShootPoint.position, ShootPoint.rotation);
-           countdown = 0f;
+            var bullet = Instantiate(rb, ShootPoint.position, ShootPoint.rotation);
+            bullet.tag = "enemyBullet";
+            shootTimeCD = shootTime;
         }
         else
         {
-            countdown += Time.deltaTime;
+            shootTimeCD -= Time.deltaTime;
         }
     }
-    // private void OnTriggerEnter2D(Collider2D other)
-    // {
-    //     if(other.tag == "player")
-    //     {
-    //         Debug.Log("Player Took DAMAGE");
-    //     }
-    // }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (TagCheck(other, "player") && damageOnContact)
+        {
+            instance.ChangeHealth();
+            instance.ChangeScore(crashReward);
+            Debug.Log("Player took DAMAGE");
+            if (selfDamageOnContact) Damage();
+        }
+        else if (TagCheck(other, "bullet"))
+        {
+            instance.ChangeScore(reward);
+            Destroy(other.gameObject);
+            Damage();
+        }
+    }
 }

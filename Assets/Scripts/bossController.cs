@@ -9,11 +9,11 @@ public class bossController : MonoBehaviour
     public Vector2 timeToRam;
     public float rammingTime = 5f;
     public float ramSpeed = 5f;
+    public int health = 5;
     private bool isRamming;
     private float ramTimerCD;
     private float rammingTimerCD;
     private float countdown2;
-    public int health = 5;
     private void Start()
     {
         ramTimerCD = Random.Range(timeToRam.x, timeToRam.y);
@@ -51,7 +51,7 @@ public class bossController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "bulletPlayer")
+        if (other.tag == "bullet")
         {
             health--;
             Debug.Log("Boss damaged");
