@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class menuHandler : MonoBehaviour
 {
     public Button newGameButton;
-    
+
     void Start()
     {
         Button btn = newGameButton.GetComponent<Button>();
@@ -16,6 +16,6 @@ public class menuHandler : MonoBehaviour
     }
 
 	void TaskOnClick(){
-        SceneManager.LoadScene(sceneName: "SampleScene");
+        SceneManager.LoadScene(sceneName: "level0");
 	}
 }
