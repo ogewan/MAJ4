@@ -8,6 +8,7 @@ using UnityEngine;
  * Handles player update and game state: paused, console, level end
  * </summary>
  */
+[System.Serializable]
 public class GameManager : MonoBehaviour
 {
     public int level;
@@ -78,6 +79,7 @@ public class GameManager : MonoBehaviour
         float moveY = Input.GetAxis("Vertical");
         bool hasPause = pauseMenu != null;
         bool hasTimer = timerDisplay != null;
+        bool hasPlayer = player != null;
         if (ccAllowed && Input.GetKeyDown(KeyCode.C))
         {
             Console.instance.ToggleConsole();
@@ -88,13 +90,15 @@ public class GameManager : MonoBehaviour
             pauseMenu.TogglePause();
             inPause = !inPause;
         }
-
-        /*mousePos = Input.mousePosition;
-        objectPos = Camera.main.WorldToScreenPoint(transform.position);
-        angle = Mathf.Atan2(mousePos.y - objectPos.y, mousePos.x - objectPos.x) * Mathf.Rad2Deg - 90.0f;
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-        if (Input.GetMouseButtonDown(0)) // 0 for left click
-            Instantiate(rb, ShootPosition.position, ShootPosition.rotation);*/
+        if (hasPlayer && (isRunning || player.ignoreManager))
+        {
+            player.pm.Movement(new Vector3(moveX, moveY));
+            player.ps.Aim();
+            if (Input.GetMouseButtonDown(0)) // 0 for left click
+            {
+                player.ps.Shoot();
+            }
+        }
         if (isRunning && hasTimer)
         {
             timerDisplay.UpdateClock();

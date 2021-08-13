@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3887241747919403257}
   - component: {fileID: 3887241747919403258}
+  - component: {fileID: 393954675}
+  - component: {fileID: 393954676}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -43,5 +45,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d45a27d66fc57f42adbc956e36094cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 0
+  playerHealth: 5
+  clock: 0
+  score: 0
+  player: {fileID: 0}
   pauseMenu: {fileID: 0}
+  healthDisplay: {fileID: 0}
+  scoreDisplay: {fileID: 0}
+  timerDisplay: {fileID: 0}
   ccAllowed: 0
+  gameStart: 0
+  inPause: 0
+  inConsole: 0
+--- !u!58 &393954675
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3887241747919403259}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
+--- !u!114 &393954676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3887241747919403259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cfcdb0cc186d5f479355ac3cf10ba08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reset: 1
+  enable: 1
+  disable: 1
+  read: 1
+  edit: 1
+  edited: 0
+  components:
+  - {fileID: 3887241747919403257}
+  - {fileID: 3887241747919403258}
+  original: 

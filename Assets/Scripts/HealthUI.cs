@@ -13,7 +13,7 @@ public class HealthUI : MonoBehaviour
         hp = Mathf.Clamp(hp, 0, healthIndicators.Length);
         for (int i = 0; i < healthIndicators.Length; i++)
         {
-            healthIndicators[i].gameObject.SetActive(hp <= i);
+            healthIndicators[i].gameObject.SetActive(hp > i);
         }
     }
     private void RegisterHealthBar()

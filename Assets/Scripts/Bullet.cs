@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static GameManager;
 
+[System.Serializable]
 public class Bullet : MonoBehaviour
 {
     public float speed;
@@ -16,20 +17,22 @@ public class Bullet : MonoBehaviour
     }
     private void Update()
     {
-        transform.Translate(Vector3.up * speed * Time.deltaTime);
-
-        if (lifetimeTimer <= 0)
+        if (instance.isRunning)
         {
-            Destroy(gameObject);
-        }
-        else
-        {
-            lifetimeTimer -= Time.deltaTime;
+            transform.Translate(Vector3.up * speed * Time.deltaTime);
+            if (lifetimeTimer <= 0)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                lifetimeTimer -= Time.deltaTime;
+            }
         }
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (TagCheck(other, "player"))
+        if (TagCheck(other, "player") && tag == "enemyBullet")
         {
             instance.ChangeHealth();
             Destroy(gameObject);

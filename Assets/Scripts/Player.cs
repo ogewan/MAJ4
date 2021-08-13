@@ -9,6 +9,7 @@ using UnityEngine;
  */
 public class Player : MonoBehaviour
 {
+    public bool ignoreManager = false;
     public PlayerMovement pm;
     public PlayerShooting ps;
     public defensebarrier db;

@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 7716682401987887694}
   - component: {fileID: 2133692261}
   - component: {fileID: 532777857}
+  - component: {fileID: 8806197999380669156}
   m_Layer: 0
   m_Name: enemy
   m_TagString: enemy
@@ -210,7 +211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 4287680615988525542, guid: 0b50f44185608e64ca30dcbbc676036b, type: 3}
   ShootPoint: {fileID: 20001214855663271}
-  shootTime: 0
+  shootTime: 3
   damageOnContact: 0
   selfDamageOnContact: 0
   reward: 5
@@ -232,3 +233,28 @@ MonoBehaviour:
   - {fileID: 0}
   speed: 5
   threshold: 0.5
+--- !u!114 &8806197999380669156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7716682401987887693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cfcdb0cc186d5f479355ac3cf10ba08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reset: 1
+  enable: 0
+  disable: 0
+  read: 1
+  edit: 0
+  edited: 0
+  components:
+  - {fileID: 7716682401987887688}
+  - {fileID: 7716682401987887695}
+  - {fileID: 7716682401987887694}
+  - {fileID: 2133692261}
+  - {fileID: 532777857}
+  original: 
