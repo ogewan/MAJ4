@@ -138,6 +138,11 @@ public class GameManager : MonoBehaviour
                 pauseMenu.gameObject.transform.SetSiblingIndex(1);
         }
     }
+    public void AddKey(string keydata)
+    {
+        keys.Add(keydata);
+        DoorCheck();
+    }
     private static GameManager _instance;
     private List<string> levelPasswordList = new List<string> { };
     private List<string> levelNameList = new List<string> { };

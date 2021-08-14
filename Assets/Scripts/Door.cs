@@ -18,7 +18,7 @@ public class Door : MonoBehaviour
     public bool SetLock(bool status)
     {
         locked = status;
-        doorGroup.SetActive(status);
+        if (doorGroup != null) doorGroup.SetActive(status);
         return status;
     }
 

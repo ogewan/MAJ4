@@ -32,8 +32,7 @@ public class pickableObject : MonoBehaviour
                 case Pickup.key:
                     //changing this
                     //instance.player.ps.CanOpenTheDoor = true;
-                    instance.keys.Add($"{value}");
-                    instance.DoorCheck();
+                    instance.AddKey($"{value}");
                     break;
                 case Pickup.shield:
                     instance.player.db.isActivated = true;
