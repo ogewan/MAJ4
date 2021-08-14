@@ -62,5 +62,6 @@ public class LevelData : MonoBehaviour
         gm.maxHealth = initialHP;
         gm.special = 0;
         gm.objectives = objectives;
+        if (gm.objectivesDisplay != null) gm.objectivesDisplay.objectives = objectives;
     }
 }

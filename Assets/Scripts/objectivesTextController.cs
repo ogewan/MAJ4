@@ -22,6 +22,8 @@ public class objectivesTextController : MonoBehaviour
     }
     private void RegisterObjectives()
     {
-        GameManager.instance.objectivesDisplay = this;
+        var gm = GameManager.instance;
+        gm.objectivesDisplay = this;
+        if (gm.objectives != null) objectives = gm.objectives;
     }
 }

@@ -33,8 +33,10 @@ public class GameManager : MonoBehaviour
     public bool gameStart = false;
     public bool inPause = false;
     public bool inConsole = false;
+    public bool weightless = false;
     public List<string> keys = new List<string> { };
     public List<Door> doors = new List<Door> { };
+    public Vector2 lastMovement;
     public static GameManager instance => Instance();
     public int special { get; set; } = 0;
     public bool isRunning => IsRunning();
@@ -182,7 +184,8 @@ public class GameManager : MonoBehaviour
         }
         if (hasPlayer && (isRunning || player.ignoreManager))
         {
-            player.pm.Movement(new Vector3(moveX, moveY));
+            if (!weightless) lastMovement = new Vector3(moveX, moveY);
+            player.pm.Movement(lastMovement);
             player.ps.Aim();
             player.db.barrierTick();
             if (Input.GetMouseButtonDown(0)) // 0 for left click
