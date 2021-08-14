@@ -7,20 +7,49 @@ using static GameManager;
 public class EnemyScript : MonoBehaviour
 {
     //public Rigidbody2D rb;
+    public int health = 1;
     public GameObject rb;
     public Transform ShootPoint;
     public float shootTime;
     public bool damageOnContact;
     public bool selfDamageOnContact;
-    public int reward = 5;
+    public int scoreReward = 5;
     public int crashReward = 0;
+    //public GenericDictionary<GameObject, float> reward = new GenericDictionary<GameObject, float> { };
+    public GameObject[] reward = new GameObject[] { };
     public void Damage(int val = 1)
     {
-        Destroy(gameObject);
+        health -= val;
+        if (health <= 0)
+        {
+            //Destroy(gameObject);
+            gameObject.SetActive(false);
+            instance.DoorCheck();
+            foreach (var obj in reward)
+            {
+                var mypos = transform.position;
+                mypos.x += Random.Range(-2f, 2f);
+                mypos.y += Random.Range(-2f, 2f);
+
+                Instantiate(obj, mypos, Quaternion.identity);
+            }
+        }
     }
+    private bool setParticleTarget = false;
+    private ParticleSystem ps;
     private float shootTimeCD;
+    private void Start()
+    {
+        ps = GetComponent<ParticleSystem>();
+    }
     private void Update()
     {
+        if (ps && instance.player && setParticleTarget)
+        {
+            ps.trigger.AddCollider(instance.player.transform);
+            setParticleTarget = false;
+        }
+
         if (instance.isRunning)
         {
             Transform player = instance.player.transform;
@@ -54,7 +83,7 @@ public class EnemyScript : MonoBehaviour
             }
             else if (TagCheck(other, "bullet"))
             {
-                instance.ChangeScore(reward);
+                instance.ChangeScore(scoreReward);
                 Destroy(other.gameObject);
                 Damage();
             }

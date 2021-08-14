@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 1077912025163151345}
   - component: {fileID: 632328130260058218}
   - component: {fileID: 4449982906395438313}
+  - component: {fileID: 5310238152564453178}
   m_Layer: 0
   m_Name: EnemyBoss
   m_TagString: Untagged
@@ -132,7 +133,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e21333a80cbd43f08cd1d7524b2c596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   trackPlayer: 0
   timeToRam: {x: 0, y: 0}
   rammingTime: 5
@@ -211,6 +211,31 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.0117986, y: 2.0155714}
   m_EdgeRadius: 0
+--- !u!114 &5310238152564453178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6302235628811147521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cfcdb0cc186d5f479355ac3cf10ba08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reset: 1
+  enable: 1
+  disable: 1
+  read: 1
+  edit: 1
+  edited: 0
+  components:
+  - {fileID: 2582520211919699882}
+  - {fileID: 2396687142689173312}
+  - {fileID: 1077912025163151345}
+  - {fileID: 632328130260058218}
+  - {fileID: 4449982906395438313}
+  original: 
 --- !u!1001 &1304308137489978218
 PrefabInstance:
   m_ObjectHideFlags: 0

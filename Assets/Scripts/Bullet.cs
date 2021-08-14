@@ -48,6 +48,14 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        else if (TagCheck(other, "barrier") && tag == "enemyBullet")
+        {
+            Destroy(gameObject);
+        }
+        else if (TagCheck(other, "enemybarrier") && tag == "bullet")
+        {
+            Destroy(gameObject);
+        }
         else if (TagCheck(other, opposite))
         {
             Destroy(gameObject);

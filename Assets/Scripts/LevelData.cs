@@ -22,5 +22,8 @@ public class LevelData : MonoBehaviour
     private void RegisterLevel()
     {
         GameManager.instance.level = this;
+        //Level Setup
+        GameManager.instance.keys.Clear();
+        AudioManager.instance.PlayBGM(audioTrack);
     }
 }

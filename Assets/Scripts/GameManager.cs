@@ -22,11 +22,13 @@ public class GameManager : MonoBehaviour
     public TimerUI timerDisplay;
     public bool ccAllowed;
     public bool consoleLoaded = false;
-
     public bool gameStart = false;
     public bool inPause = false;
     public bool inConsole = false;
+    public List<string> keys = new List<string> { };
+    public List<Door> doors = new List<Door> { };
     public static GameManager instance => Instance();
+    public int special { get; set; } = 0;
     public bool isRunning => IsRunning();
     public static GameManager Instance(GameManager over = null)
     {
@@ -65,7 +67,13 @@ public class GameManager : MonoBehaviour
         score += val;
         scoreDisplay.UpdateScore();
     }
-
+    public void DoorCheck()
+    {
+        foreach (var door in doors)
+        {
+            door.UnlockOnCheck();
+        }
+    }
     public string GetLevel(int level)
     {
         return (level >= 0 && level < levelPasswordList.Count) ? levelPasswordList[level] : "";
@@ -114,6 +122,7 @@ public class GameManager : MonoBehaviour
         {
             player.pm.Movement(new Vector3(moveX, moveY));
             player.ps.Aim();
+            player.db.barrierTick();
             if (Input.GetMouseButtonDown(0)) // 0 for left click
             {
                 player.ps.Shoot();

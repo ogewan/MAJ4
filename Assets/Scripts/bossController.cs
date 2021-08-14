@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class bossController : MonoBehaviour
 {
-    public Transform player;
+    //public Transform player;
     public bool trackPlayer = false;
-    public Vector2 timeToRam;
+    public Vector2 timeToRam = new Vector2(3, 5);
     public float rammingTime = 5f;
     public float ramSpeed = 5f;
     public int health = 5;
@@ -14,39 +14,50 @@ public class bossController : MonoBehaviour
     private float ramTimerCD;
     private float rammingTimerCD;
     private float countdown2;
+
+    private void RammingMode()
+    {
+        Transform player = GameManager.instance.player.transform;
+        if (!isRamming)
+        {
+            transform.up = player.position - transform.position;
+            isRamming = true;
+            rammingTimerCD = rammingTime;
+        }
+        else if (trackPlayer) transform.up = player.position - transform.position;
+
+        transform.Translate(Vector3.up * ramSpeed * Time.deltaTime);
+
+        if (rammingTimerCD <= 0)
+        {
+            ramTimerCD = Random.Range(timeToRam.x, timeToRam.y);
+            isRamming = false;
+        }
+        else
+        {
+            rammingTimerCD -= Time.deltaTime;
+        }
+    }
     private void Start()
     {
         ramTimerCD = Random.Range(timeToRam.x, timeToRam.y);
     }
     private void Update()
     {
-        if (ramTimerCD < 0)
+        if (GameManager.instance.isRunning)
         {
-            if (!isRamming)
+            if (ramTimerCD <= 0)
             {
-                transform.right = player.position - transform.position;
-                isRamming = true;
-                rammingTimerCD = rammingTime;
-            }
-            else if (trackPlayer) transform.up = player.position - transform.position;
-            transform.Translate(Vector3.up * ramSpeed * Time.deltaTime);
-            if (rammingTimerCD < 0)
-            {
-                ramTimerCD = Random.Range(timeToRam.x, timeToRam.y);
-                isRamming = false;
+                RammingMode();
             }
             else
             {
-                rammingTimerCD -= Time.deltaTime;
+                ramTimerCD -= Time.deltaTime;
             }
-        }
-        else
-        {
-            ramTimerCD -= Time.deltaTime;
-        }
-        if (health <= 0)
-        {
-            Destroy(gameObject);
+            if (health <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
     }
     private void OnTriggerEnter2D(Collider2D other)

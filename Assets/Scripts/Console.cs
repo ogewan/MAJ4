@@ -185,6 +185,7 @@ public class Console : MonoBehaviour
                         $"enable: Activate selected GameObject.\n" +
                         $"disable: Disable selected GameObject.\n" +
                         $"list: List disabled GameObjects.\n" +
+                        $"keys: List registered keys.\n" +
                         $"edit: Edit a GameObject's parameters." +
                         $"retry: Reset a level to its start." +
                         $"note: Level notes.";
@@ -270,6 +271,10 @@ public class Console : MonoBehaviour
                     response += $"Enter ID to load:";
                     loadMode = true;
                     break;
+                case "k":
+                case "keys":
+                    response += (GameManager.instance.keys.Count == 0) ? "There are no keys registered." : $"{ListKeys()}";
+                    break;
 
                 default:
                     response += $"'{input}' is not recognized as a command.";
@@ -288,6 +293,7 @@ public class Console : MonoBehaviour
         consoleBackground.SetActive(ccActive);
         commandWindow.SetActive(ccActive);
         editorWindow.SetActive(false);
+        AudioManager.instance.SetDistortion(status);
         if (!GameManager.instance.consoleLoaded) FirstLoad();
     }
     public void FirstLoad()
@@ -329,6 +335,16 @@ public class Console : MonoBehaviour
         for (int i = 0; i < levelGobjs.Length; i++)
         {
             list += $"[{i}]: {levelGobjs[i].name}\n";
+        }
+        return list;
+    }
+    private string ListKeys()
+    {
+        var keys = GameManager.instance.keys;
+        string list = "";
+        foreach (var key in keys)
+        {
+            list += $"{key}\n";
         }
         return list;
     }

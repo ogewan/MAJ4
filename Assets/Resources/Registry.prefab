@@ -51,4 +51,6 @@ MonoBehaviour:
       Value: {fileID: 3698093952986710749, guid: 7a51460db7caaba4e8e0b5c7ada97f8b, type: 3}
     - Key: BaseCanvas
       Value: {fileID: 3951620993180781303, guid: 920cd627711ff854ab047f09e8d2da25, type: 3}
+    - Key: AudioManager
+      Value: {fileID: 4110817257282137786, guid: 780d09aa228d07243bd0f48de5bb0b02, type: 3}
     keyCollision: 0

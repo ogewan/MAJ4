@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using static GameManager;
 
+[System.Serializable]
 public class pickableObject : MonoBehaviour
 {
-    public int cases;
+    public Pickup type;
+    public int value;
+    // public GameObject BarrierDefense;
+    public enum Pickup { health, key, shield, special }
     private GameObject player;
     private bool OpenDoor;
     private GameObject healthSystem;
-    // public GameObject BarrierDefense;
-
     private void Start()
     {
         //healthSystem = GameObject.FindGameObjectWithTag("hearts");
@@ -22,17 +24,26 @@ public class pickableObject : MonoBehaviour
     {
         if (TagCheck(other, "player"))
         {
-            if (cases == 0)
+            switch (type)
             {
-                instance.player.ps.CanOpenTheDoor = true;
-            }
-            else if (cases == 1)
-            {
-                instance.ChangeHealth(1);
-            }
-            else if (cases == 2)
-            {
-                instance.player.db.isActivated = true;
+                case Pickup.health:
+                    instance.ChangeHealth(1);
+                    break;
+                case Pickup.key:
+                    //changing this
+                    //instance.player.ps.CanOpenTheDoor = true;
+                    instance.keys.Add($"{value}");
+                    instance.DoorCheck();
+                    break;
+                case Pickup.shield:
+                    instance.player.db.isActivated = true;
+                    break;
+                case Pickup.special:
+                    instance.special++;
+                    instance.ChangeScore(20);
+                    break;
+                default:
+                    break;
             }
             Destroy(gameObject);
         }

@@ -24,4 +24,12 @@ public class Player : MonoBehaviour
     {
         GameManager.instance.player = this;
     }
+    private void OnParticleCollision(GameObject other)
+    {
+    }
+    private void OnParticleTrigger()
+    {
+        GameManager.instance.ChangeHealth();
+        Debug.Log("Player took DAMAGE");
+    }
 }
