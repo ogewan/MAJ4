@@ -34,6 +34,7 @@ public class EnemyScript : MonoBehaviour
 
                 Instantiate(obj, mypos, Quaternion.identity);
             }
+            Instantiate(Registry.instance.prefabs["Explosion"], transform.position, Quaternion.identity);
         }
     }
     private bool setParticleTarget = false;
