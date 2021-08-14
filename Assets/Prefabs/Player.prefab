@@ -44,6 +44,8 @@ GameObject:
   - component: {fileID: 1524042026}
   - component: {fileID: 1524042023}
   - component: {fileID: 1953241407287404927}
+  - component: {fileID: 6763556784896907100}
+  - component: {fileID: 4185239578893088655}
   m_Layer: 0
   m_Name: Player
   m_TagString: player
@@ -141,7 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee540e133e5ad4e468277c509733d397, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 7118195306508383980, guid: 8ce2abbbad0d15344b92c679bef0961f, type: 3}
+  rb: {fileID: 4287680615988525542, guid: 0b50f44185608e64ca30dcbbc676036b, type: 3}
   ShootPosition: {fileID: 485846991}
   CanOpenTheDoor: 0
 --- !u!114 &1953241407287404927
@@ -160,6 +162,50 @@ MonoBehaviour:
   CountingTime: 0
   isActivated: 0
   BarrierForDefense: {fileID: 6036491781996934734}
+--- !u!114 &6763556784896907100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1700168847542582017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3eb3a7b216ff7d4ab40bba81c6a034d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ignoreManager: 0
+  pm: {fileID: 0}
+  ps: {fileID: 0}
+  db: {fileID: 0}
+--- !u!114 &4185239578893088655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1700168847542582017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cfcdb0cc186d5f479355ac3cf10ba08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reset: 1
+  enable: 1
+  disable: 1
+  read: 1
+  edit: 1
+  edited: 0
+  components:
+  - {fileID: 1393201267341576289}
+  - {fileID: 6763556784896907100}
+  - {fileID: 239223786}
+  - {fileID: 2979497259917031112}
+  - {fileID: 1524042026}
+  - {fileID: 1524042023}
+  - {fileID: 1953241407287404927}
+  - {fileID: 4185239578893088655}
+  original: 
 --- !u!1 &3189211699485395180
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,7 +302,7 @@ GameObject:
   - component: {fileID: 3014481729020414592}
   m_Layer: 0
   m_Name: DefenseBarrier
-  m_TagString: defensebarriers
+  m_TagString: barrier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -337,7 +383,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

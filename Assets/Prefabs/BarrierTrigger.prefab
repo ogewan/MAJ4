@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8471430776414493198}
   - component: {fileID: 3315093108462004002}
   - component: {fileID: 2941245736094420284}
+  - component: {fileID: 6554952656785932355}
   m_Layer: 0
   m_Name: BarrierTrigger
   m_TagString: Untagged
@@ -98,7 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56c981f3ff5ff5142b0fe548ea3a55c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cases: 2
+  type: 2
+  value: 0
 --- !u!50 &3315093108462004002
 Rigidbody2D:
   serializedVersion: 4
@@ -146,3 +148,28 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &6554952656785932355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865626633693264056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cfcdb0cc186d5f479355ac3cf10ba08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reset: 1
+  enable: 1
+  disable: 1
+  read: 1
+  edit: 1
+  edited: 0
+  components:
+  - {fileID: 1958750666722371804}
+  - {fileID: 7748601873390147368}
+  - {fileID: 8471430776414493198}
+  - {fileID: 3315093108462004002}
+  - {fileID: 2941245736094420284}
+  original: 

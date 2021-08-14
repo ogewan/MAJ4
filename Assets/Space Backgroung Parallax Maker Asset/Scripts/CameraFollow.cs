@@ -5,13 +5,18 @@ namespace Mkey
     public enum TrackMode { Player, Mouse, Gyroscope, Keyboard, Touch }
     public class CameraFollow : MonoBehaviour
     {
+        public static CameraFollow Instance;
+        public TrackMode track = TrackMode.Touch;
+        public bool ClampPosition;
+        public BoxCollider2D ClampField;
+        public float ScreenRatio
+        {
+            get { return ((float)Screen.width / Screen.height); }
+        }
         //player follow options
         private Vector2 margin;
         private Vector2 smooth;
-
-        public TrackMode track = TrackMode.Touch;
-        public bool ClampPosition;
-        public BoxCollider2D ClampField;  // camera motion field
+        // camera motion field
 
         [SerializeField]
         private GameObject player;
@@ -19,18 +24,10 @@ namespace Mkey
         private float camVertSize;
         private float camHorSize;
         private Vector3 acceleration;
-
-        public float ScreenRatio
-        {
-            get { return ((float)Screen.width / Screen.height); }
-        }
-
-        public static CameraFollow Instance;
-
         #region regular
-        void Awake()
+        private void Awake()
         {
-            if(!player)  player = GameObject.FindGameObjectWithTag("Player");
+            if (!player) player = GameObject.FindGameObjectWithTag("Player");
             margin = new Vector2(2, 2);
             smooth = new Vector2(3, 3);
 
@@ -43,7 +40,7 @@ namespace Mkey
             TouchPad.Instance.ScreenDragEvent += TrackTouchDrag;
         }
 
-        void LateUpdate()
+        private void LateUpdate()
         {
             switch (track)
             {
@@ -59,7 +56,6 @@ namespace Mkey
                 case TrackMode.Keyboard:
                     TrackKeyboard();
                     break;
-
             }
         }
 
@@ -209,13 +205,14 @@ namespace Mkey
         private void TrackKeyboard()
         {
             Vector3 dir = Vector3.zero;
-            dir.y = Input.GetAxis("Vertical");
-            dir.x = Input.GetAxis("Horizontal");
+            //dir.y = Input.GetAxis("Vertical");
+            //dir.x = Input.GetAxis("Horizontal");
+            dir.y = 1;
+            dir.x = 1;
 
             Vector3 target = transform.position + new Vector3(dir.x, dir.y, 0);
             transform.position = Vector3.Lerp(transform.position, target, 1.0f * Time.deltaTime);
             ClampCameraPosInField();
         }
-
     }
 }

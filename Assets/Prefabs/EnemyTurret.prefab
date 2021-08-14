@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 7284763275056223810}
   - component: {fileID: 9158335533727250877}
   - component: {fileID: 6859524713383015663}
+  - component: {fileID: 5268783109330892640}
   m_Layer: 0
   m_Name: EnemyTurret
   m_TagString: Untagged
@@ -207,7 +208,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84047f349c8d6a8479e51a6a57267a04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 7284763275056223810}
+  rb: {fileID: 4287680615988525542, guid: 0b50f44185608e64ca30dcbbc676036b, type: 3}
   ShootPoint: {fileID: 6691305515458921967}
-  TimeToShoot: 3
-  player: {fileID: 0}
+  shootTime: 3
+  damageOnContact: 0
+  selfDamageOnContact: 0
+  reward: 5
+  crashReward: 0
+--- !u!114 &5268783109330892640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5431875854448912293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cfcdb0cc186d5f479355ac3cf10ba08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reset: 1
+  enable: 0
+  disable: 0
+  read: 1
+  edit: 0
+  edited: 0
+  components:
+  - {fileID: 4485012707252751036}
+  - {fileID: 7284763275056223810}
+  - {fileID: 9158335533727250877}
+  - {fileID: 6859524713383015663}
+  original: 

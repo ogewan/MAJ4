@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3789717070639125535
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6097404513228702126}
+  - component: {fileID: 7241191075145895254}
+  m_Layer: 0
+  m_Name: Registry
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6097404513228702126
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3789717070639125535}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7241191075145895254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3789717070639125535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f05fc114538cfc04e83feb9300c19a07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs:
+    list:
+    - Key: GameManager
+      Value: {fileID: 3887241747919403259, guid: 7041da54015ab444db1133d504829204, type: 3}
+    - Key: ConsoleCommands
+      Value: {fileID: 3698093952986710749, guid: 7a51460db7caaba4e8e0b5c7ada97f8b, type: 3}
+    - Key: BaseCanvas
+      Value: {fileID: 3951620993180781303, guid: 920cd627711ff854ab047f09e8d2da25, type: 3}
+    - Key: AudioManager
+      Value: {fileID: 4110817257282137786, guid: 780d09aa228d07243bd0f48de5bb0b02, type: 3}
+    - Key: Overlay
+      Value: {fileID: 5379566606747789228, guid: 075af0129f8244d4cb347e3caf10f1d8, type: 3}
+    - Key: Pause
+      Value: {fileID: 1443831134531920237, guid: bfa39ba47e1ba3e4e98ebc3df5518014, type: 3}
+    - Key: WinScreen
+      Value: {fileID: 8722686604774459808, guid: 5ca69462f7ef2414b8961008c11e4b31, type: 3}
+    - Key: LoseScreen
+      Value: {fileID: 2272672171954539694, guid: f73e5a3ee9ae0bd4e825fa05e9d342d8, type: 3}
+    keyCollision: 0

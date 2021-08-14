@@ -7,36 +7,32 @@ public class defensebarrier : MonoBehaviour
     public float LastingTime;
     public float CountingTime = 0f;
     public bool isActivated = false;
-    private float i =  1f;
     public GameObject BarrierForDefense;
-
-    
-
-    
-    void Update()
+    public void barrierTick()
     {
-     if(isActivated == true)
-     {  
-         if( i > 0 )
-         {
-            BarrierForDefense.SetActive(true);
-            i--;  
-         }
-        if(CountingTime > LastingTime)
+        if (isActivated == true)
+        {
+            if (i > 0)
             {
-            BarrierForDefense.SetActive(false);
-            isActivated = false;
-            CountingTime = 0f;
+                BarrierForDefense.SetActive(true);
+                i--;
             }
-        else
+            if (CountingTime > LastingTime)
             {
-            BarrierForDefense.SetActive(true);
-            CountingTime += Time.deltaTime;
-            }  
+                BarrierForDefense.SetActive(false);
+                isActivated = false;
+                CountingTime = 0f;
+            }
+            else
+            {
+                BarrierForDefense.SetActive(true);
+                CountingTime += Time.deltaTime;
+            }
+        }
+        else
+        {
+            BarrierForDefense.SetActive(false);
+        }
     }
-    else
-    {
-        BarrierForDefense.SetActive(false);
-    }
-     }
+    private float i = 1f;
 }

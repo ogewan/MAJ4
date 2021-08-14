@@ -25,12 +25,18 @@ public class Editable : MonoBehaviour, IPointerClickHandler
     [Header("Data")]
     [Tooltip("Components listed here will be accessible via the Console. \nDrag component from this GameObject here. Component must have [System.Serializable].")]
     public Component[] components;
+    public interface IComponentData
+    {
+        void Apply(Editable data);
+        string Serialize(Editable data);
+    }
     public void OnPointerClick(PointerEventData eventData)
     {
         Console.instance.SelectObject(this);
     }
     public void Reset()
     {
+        JSONToComponents(original);
         edited = false;
     }
     public string Dump()
@@ -39,7 +45,81 @@ public class Editable : MonoBehaviour, IPointerClickHandler
     }
     public string Load(string data)
     {
-        Debug.Log(data);
+        return JSONToComponents(data);
+    }
+    [System.Serializable]
+    public class TransformData : IComponentData
+    {
+        public Vector3 position;
+        public Vector3 rotation;
+        public Vector3 scale;
+
+        public void Apply(Editable data)
+        {
+            data.transform.position = position;
+            data.transform.eulerAngles = rotation;
+            data.transform.localScale = scale;
+        }
+
+        public string Serialize(Editable data)
+        {
+            position = data.transform.position;
+            rotation = data.transform.eulerAngles;
+            scale = data.transform.localScale;
+            return JsonUtility.ToJson(this, true);
+        }
+    }
+    [SerializeField]
+    [TextArea]
+    private string original;
+    private Dictionary<string, Type> dataType = new Dictionary<string, Type> {
+        { "TransformData", typeof(TransformData) }
+    };
+    private bool JsonToComponentDataBackup(string jsonType, string jsonData)
+    {
+        dataType.TryGetValue(jsonType, out Type dynType);
+        if (dynType != null)
+        {
+            IComponentData dataJson = (IComponentData)JsonUtility.FromJson(jsonData, dynType);
+            dataJson.Apply(this);
+            return true;
+        }
+        return false;
+    }
+    private string ComponentDataToJsonBackup(string strType, Component comp)
+    {
+        dataType.TryGetValue($"{strType}Data", out Type dynType);
+        if (dynType != null)
+        {
+            Activator.CreateInstance(dynType);
+            IComponentData dataJson = (IComponentData)Activator.CreateInstance(dynType);
+            return $"[{strType}Data]\n{dataJson.Serialize(this)}";
+        }
+        return "";
+    }
+    private string ComponentsToJSON()
+    {
+        string data = "";
+        for (int i = 0; i < components.Length; i++)
+        {
+            var comp = components[i];
+            try
+            {
+                // BUG: Original is set after serializaion so the field is wiped when loaded
+                data += $"{(data.Length == 0 ? "" : "\n")}[{comp.GetType().Name}]\n{JsonUtility.ToJson(comp, true)}";
+            }
+            catch
+            {
+                var backup = ComponentDataToJsonBackup(comp.GetType().Name, comp);
+                if (backup.Length > 0) data += $"{(data.Length == 0 ? "" : "\n")}{backup}";
+                else Debug.Log($"Could not serialize {comp.GetType().Name}");
+            }
+        }
+        if (original.Length == 0) original = data;
+        return data;
+    }
+    private string JSONToComponents(string data)
+    {
         var lines = data.Split('\n');
         string resultType = "";
         string resultJson = "";
@@ -66,12 +146,17 @@ public class Editable : MonoBehaviour, IPointerClickHandler
                     startJson = false;
                     try
                     {
-                        JsonUtility.FromJsonOverwrite(resultJson, GetComponent(Type.GetType(resultType, false)));
-                        edited = true;
+                        bool backupSuccess = false;
+                        dataType.TryGetValue(resultType, out Type backupType);
+                        //Not in data dict, because serializable natively
+                        if (backupType == null) JsonUtility.FromJsonOverwrite(resultJson, GetComponent(Type.GetType(resultType, false)));
+                        else backupSuccess = JsonToComponentDataBackup(resultType, resultJson);
+
+                        if (backupType == null || backupSuccess) edited = true;
+                        else error += $"Object of Type '{resultType}' could not be parsed: {resultJson}";
                     }
                     catch (Exception ex)
                     {
-                        error += $"Object of Type '{resultType}' could not be parsed: {resultJson}";
                         //+ $"\n{ex.ToString()}";
                     }
                     resultJson = "";
@@ -79,28 +164,5 @@ public class Editable : MonoBehaviour, IPointerClickHandler
             }
         }
         return error;
-    }
-    [System.Serializable]
-    public class TransformData
-    {
-        public Vector3 location;
-        public string name;
-    }
-    private string ComponentsToJSON()
-    {
-        string data = "";
-        for (int i = 0; i < components.Length; i++)
-        {
-            var comp = components[i];
-            try
-            {
-                data += $"{(data.Length == 0 ? "" : "\n")}[{comp.GetType().Name}]\n{JsonUtility.ToJson(comp, true)}";
-            }
-            catch
-            {
-                Debug.Log($"Could not serialize {comp.GetType().Name}");
-            }
-        }
-        return data;
     }
 }
