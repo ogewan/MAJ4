@@ -30,6 +30,6 @@ public class Player : MonoBehaviour
     private void OnParticleTrigger()
     {
         GameManager.instance.ChangeHealth();
-        Debug.Log("Player took DAMAGE");
+        //Debug.Log("Player took DAMAGE");
     }
 }

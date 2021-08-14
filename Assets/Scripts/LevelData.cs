@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -18,6 +19,7 @@ public class LevelData : MonoBehaviour
     public int audioTrack = 0;
     public Editable[] goReference = new Editable[] { };
     public bool startOnLoad = true;
+    public List<string> objectives;
 
     private void Start()
     {
@@ -30,7 +32,6 @@ public class LevelData : MonoBehaviour
         var gm = GameManager.instance;
         gm.level = this;
         //Level Setup
-        gm.keys.Clear();
         AudioManager.instance.PlayBGM(audioTrack);
         gm.SetRank();
     }
@@ -51,13 +52,15 @@ public class LevelData : MonoBehaviour
         //Add Level specific canvas elements
         Instantiate(Registry.instance.prefabs["Overlay"], canvas.transform);
         Instantiate(Registry.instance.prefabs["Pause"], canvas.transform);
-        //Instantiate(Registry.instance.prefabs["WinScreen"], canvas.transform);
-        //Instantiate(Registry.instance.prefabs["LoseScreen"], canvas.transform);
+        Instantiate(Registry.instance.prefabs["WinScreen"], canvas.transform);
+        Instantiate(Registry.instance.prefabs["LoseScreen"], canvas.transform);
         //reset parameters
+        gm.keys.Clear();
         gm.clock = 0;
         gm.score = 0;
         gm.playerHealth = initialHP;
         gm.maxHealth = initialHP;
         gm.special = 0;
+        gm.objectives = objectives;
     }
 }

@@ -36,7 +36,7 @@ public class Bullet : MonoBehaviour
         {
             instance.ChangeHealth();
             Destroy(gameObject);
-            Debug.Log("Player took DAMAGE");
+            //Debug.Log("Player took DAMAGE");
         }
         //Do enemy check on enemy to not need GetComponent
         /*else if (TagCheck(other, "enemy")) {

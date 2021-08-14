@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public float clock;
     public int score;
     public string rank;
+    public List<string> objectives;
     public Player player;
     public Pause pauseMenu;
     public HealthUI healthDisplay;
@@ -26,6 +27,7 @@ public class GameManager : MonoBehaviour
     public OverlayUI overlay;
     public WinScreen win;
     public LoseScreen lose;
+    public objectivesTextController objectivesDisplay;
     public bool ccAllowed;
     public bool consoleLoaded = false;
     public bool gameStart = false;
@@ -143,6 +145,7 @@ public class GameManager : MonoBehaviour
         pauseMenu.ControlPause(false);
         Console.instance.ControlConsole(false);
         overlay.gameObject.SetActive(false);
+        doors.Clear();
     }
     private void Awake()
     {

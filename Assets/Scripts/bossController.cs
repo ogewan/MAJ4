@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static GameManager;
 
 public class bossController : MonoBehaviour
 {
@@ -10,11 +11,11 @@ public class bossController : MonoBehaviour
     public float rammingTime = 5f;
     public float ramSpeed = 5f;
     public int health = 5;
+    public GameObject[] reward = new GameObject[] { };
+    public int scoreReward = 50;
     private bool isRamming;
     private float ramTimerCD;
     private float rammingTimerCD;
-    private float countdown2;
-
     private void RammingMode()
     {
         Transform player = GameManager.instance.player.transform;
@@ -44,7 +45,7 @@ public class bossController : MonoBehaviour
     }
     private void Update()
     {
-        if (GameManager.instance.isRunning)
+        if (instance.isRunning)
         {
             if (ramTimerCD <= 0)
             {
@@ -56,16 +57,33 @@ public class bossController : MonoBehaviour
             }
             if (health <= 0)
             {
-                Destroy(gameObject);
+                //Destroy(gameObject);
+                gameObject.SetActive(false);
+                instance.DoorCheck();
+                instance.ChangeScore(scoreReward);
+                foreach (var obj in reward)
+                {
+                    var mypos = transform.position;
+                    mypos.x += Random.Range(-2f, 2f);
+                    mypos.y += Random.Range(-2f, 2f);
+
+                    Instantiate(obj, mypos, Quaternion.identity);
+                }
             }
         }
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "bullet")
+        if (TagCheck(other, "bullet"))
         {
+            Destroy(other.gameObject);
             health--;
-            Debug.Log("Boss damaged");
+            //Debug.Log("Boss damaged");
+        }
+        else if (TagCheck(other, "player"))
+        {
+            instance.ChangeHealth();
+            //Debug.Log("Player took DAMAGE");
         }
     }
 }

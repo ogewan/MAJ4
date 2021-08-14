@@ -295,14 +295,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: enemy
       objectReference: {fileID: 0}
-    - target: {fileID: 6859524713383015663, guid: 814304206d6d043a7a9fd6b020d56c0e, type: 3}
-      propertyPath: rb
-      value: 
-      objectReference: {fileID: 7251752825437011166, guid: 80c070912ac5a394f97bcbee0a9115e4, type: 3}
-    - target: {fileID: 6859524713383015663, guid: 814304206d6d043a7a9fd6b020d56c0e, type: 3}
-      propertyPath: TimeToShoot
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7284763275056223810, guid: 814304206d6d043a7a9fd6b020d56c0e, type: 3}
       propertyPath: m_BodyType
       value: 1
@@ -384,14 +376,6 @@ PrefabInstance:
     - target: {fileID: 5431875854448912293, guid: 814304206d6d043a7a9fd6b020d56c0e, type: 3}
       propertyPath: m_TagString
       value: enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 6859524713383015663, guid: 814304206d6d043a7a9fd6b020d56c0e, type: 3}
-      propertyPath: rb
-      value: 
-      objectReference: {fileID: 7251752825437011166, guid: 80c070912ac5a394f97bcbee0a9115e4, type: 3}
-    - target: {fileID: 6859524713383015663, guid: 814304206d6d043a7a9fd6b020d56c0e, type: 3}
-      propertyPath: TimeToShoot
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7284763275056223810, guid: 814304206d6d043a7a9fd6b020d56c0e, type: 3}
       propertyPath: m_BodyType

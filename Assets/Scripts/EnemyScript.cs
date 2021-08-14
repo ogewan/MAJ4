@@ -25,6 +25,7 @@ public class EnemyScript : MonoBehaviour
             //Destroy(gameObject);
             gameObject.SetActive(false);
             instance.DoorCheck();
+            instance.ChangeScore(scoreReward);
             foreach (var obj in reward)
             {
                 var mypos = transform.position;
@@ -78,12 +79,11 @@ public class EnemyScript : MonoBehaviour
             {
                 instance.ChangeHealth();
                 instance.ChangeScore(crashReward);
-                Debug.Log("Player took DAMAGE");
+                //Debug.Log("Player took DAMAGE");
                 if (selfDamageOnContact) Damage();
             }
             else if (TagCheck(other, "bullet"))
             {
-                instance.ChangeScore(scoreReward);
                 Destroy(other.gameObject);
                 Damage();
             }
