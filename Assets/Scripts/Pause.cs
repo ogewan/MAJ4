@@ -27,6 +27,7 @@ public class Pause : MonoBehaviour
     private void RegisterPause()
     {
         GameManager.instance.pauseMenu = this;
+        GameManager.instance.ReIndex();
     }
     //lazy dirty hack
     private void Update()

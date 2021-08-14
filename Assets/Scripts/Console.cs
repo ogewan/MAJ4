@@ -105,6 +105,7 @@ public class Console : MonoBehaviour
             {
                 case "y":
                 case "yes":
+                    ControlConsole(false);
                     SceneManager.LoadScene(SceneManager.GetActiveScene().name);
                     break;
                 case "n":
@@ -187,7 +188,7 @@ public class Console : MonoBehaviour
                         $"list: List disabled GameObjects.\n" +
                         $"keys: List registered keys.\n" +
                         $"edit: Edit a GameObject's parameters." +
-                        $"retry: Reset a level to its start." +
+                        $"reload: Reset a level to its start." +
                         $"note: Level notes.";
                     break;
                 case "r":

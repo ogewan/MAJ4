@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /**
  * <summary>
@@ -12,14 +13,19 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public LevelData level;
-    public int playerHealth = 5;
+    public int playerHealth;
+    public int maxHealth;
     public float clock;
     public int score;
+    public string rank;
     public Player player;
     public Pause pauseMenu;
     public HealthUI healthDisplay;
     public ScoreUI scoreDisplay;
     public TimerUI timerDisplay;
+    public OverlayUI overlay;
+    public WinScreen win;
+    public LoseScreen lose;
     public bool ccAllowed;
     public bool consoleLoaded = false;
     public bool gameStart = false;
@@ -59,8 +65,12 @@ public class GameManager : MonoBehaviour
     }
     public void ChangeHealth(int val = -1)
     {
-        playerHealth += val;
+        playerHealth = Mathf.Clamp(playerHealth + val, 0, maxHealth);
         healthDisplay.ShowHealth(playerHealth);
+        if (playerHealth <= 0)
+        {
+            GameLose();
+        }
     }
     public void ChangeScore(int val = 5)
     {
@@ -90,9 +100,50 @@ public class GameManager : MonoBehaviour
     {
         return (level >= 0 && level < levelNameList.Count) ? levelNameList[level] : "";
     }
+    public void SetRank()
+    {
+        var rankings = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        var rankId = Random.Range(0, rankings.Length);
+        rank = $"{rankings[rankId]}";
+    }
+    public void Continue()
+    {
+        SceneManager.LoadScene(level.nextLevelName.Length != 0 ? level.nextLevelName : "meinMenu");
+    }
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("meinMenu");
+    }
+    public void GameWin()
+    {
+        GameEnd();
+        win.winWindow.SetActive(true);
+        win.Report();
+    }
+    public void GameLose()
+    {
+        GameEnd();
+        lose.loseWindow.SetActive(true);
+    }
+    public void ReIndex()
+    {
+        if (overlay != null)
+        {
+            overlay.gameObject.transform.SetSiblingIndex(0);
+            if (pauseMenu != null)
+                pauseMenu.gameObject.transform.SetSiblingIndex(1);
+        }
+    }
     private static GameManager _instance;
     private List<string> levelPasswordList = new List<string> { };
     private List<string> levelNameList = new List<string> { };
+    private void GameEnd()
+    {
+        gameStart = false;
+        pauseMenu.ControlPause(false);
+        Console.instance.ControlConsole(false);
+        overlay.gameObject.SetActive(false);
+    }
     private void Awake()
     {
         if (Instance(this) != this) Destroy(gameObject);
@@ -108,7 +159,8 @@ public class GameManager : MonoBehaviour
         bool hasPause = pauseMenu != null;
         bool hasTimer = timerDisplay != null;
         bool hasPlayer = player != null;
-        if (ccAllowed && Input.GetKeyDown(KeyCode.C))
+        bool ctrl = Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl);
+        if (ccAllowed && ctrl)
         {
             Console.instance.ToggleConsole();
             inConsole = !inConsole;
