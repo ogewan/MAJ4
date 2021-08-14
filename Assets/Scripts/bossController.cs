@@ -69,6 +69,7 @@ public class bossController : MonoBehaviour
 
                     Instantiate(obj, mypos, Quaternion.identity);
                 }
+                Instantiate(Registry.instance.prefabs["Explosion"], transform.position, Quaternion.identity);
             }
         }
     }

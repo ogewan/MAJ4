@@ -125,6 +125,8 @@ public class GameManager : MonoBehaviour
     public void GameLose()
     {
         GameEnd();
+        player.gameObject.SetActive(false);
+        Instantiate(Registry.instance.prefabs["Explosion"], player.transform.position, Quaternion.identity);
         lose.loseWindow.SetActive(true);
     }
     public void ReIndex()
