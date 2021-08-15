@@ -22,22 +22,30 @@ public class Switch : MonoBehaviour
     public bool activated;
     public TextMeshPro count;
     public bool showCount;
-    private SpriteRenderer sprite;
+    public SpriteRenderer spriteRenderer;
+    public Sprite disabledSprite;
+    public Sprite enabledSprite;
     private void Start()
     {
-        sprite = GetComponent<SpriteRenderer>();
         Negation();
         if (!showCount) count.gameObject.SetActive(false);
     }
     private void Update()
     {
-        if (sprite != null && visible != sprite.enabled)
+        if (spriteRenderer != null && visible != spriteRenderer.enabled)
         {
-            sprite.enabled = visible;
+            spriteRenderer.enabled = visible;
         }
         if (accumulate && activated)
         {
             Accumulation();
+        }
+        if(activated)
+        {
+            spriteRenderer.sprite = enabledSprite;
+        } else
+        {
+            spriteRenderer.sprite = disabledSprite;
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)

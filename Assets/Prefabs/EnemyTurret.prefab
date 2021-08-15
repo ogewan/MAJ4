@@ -102,7 +102,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4f6081df49f8b407783d163e93c04b99, type: 3}
+  m_Sprite: {fileID: 1011310198364032974, guid: f25e447c6592e43918072b94a44173c4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -208,13 +208,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84047f349c8d6a8479e51a6a57267a04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 1
   rb: {fileID: 4287680615988525542, guid: 0b50f44185608e64ca30dcbbc676036b, type: 3}
   ShootPoint: {fileID: 6691305515458921967}
   shootTime: 3
   damageOnContact: 0
   selfDamageOnContact: 0
-  reward: 5
+  scoreReward: 5
   crashReward: 0
+  reward: []
 --- !u!114 &5268783109330892640
 MonoBehaviour:
   m_ObjectHideFlags: 0

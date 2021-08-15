@@ -1278,8 +1278,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4661979276562918328, guid: a3816eee36b9f424ab0f425c4110e76b, type: 3}
+      propertyPath: id
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4661979276562918328, guid: a3816eee36b9f424ab0f425c4110e76b, type: 3}
+      propertyPath: note
+      value: Try using the console
+      objectReference: {fileID: 0}
+    - target: {fileID: 4661979276562918328, guid: a3816eee36b9f424ab0f425c4110e76b, type: 3}
       propertyPath: audioTrack
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4661979276562918328, guid: a3816eee36b9f424ab0f425c4110e76b, type: 3}
+      propertyPath: startOnLoad
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4661979276562918328, guid: a3816eee36b9f424ab0f425c4110e76b, type: 3}
+      propertyPath: nextLevelName
+      value: level_2
       objectReference: {fileID: 0}
     - target: {fileID: 5521346219209432731, guid: a3816eee36b9f424ab0f425c4110e76b, type: 3}
       propertyPath: m_Name
@@ -2117,6 +2133,10 @@ PrefabInstance:
     - target: {fileID: 101288238249544841, guid: ff17f02e25c8fc14388416e14e8bfb8d, type: 3}
       propertyPath: m_Name
       value: Goal
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314600529461515273, guid: ff17f02e25c8fc14388416e14e8bfb8d, type: 3}
+      propertyPath: edit
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff17f02e25c8fc14388416e14e8bfb8d, type: 3}
