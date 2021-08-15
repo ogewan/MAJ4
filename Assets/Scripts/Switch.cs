@@ -67,13 +67,14 @@ public class Switch : MonoBehaviour
     }
     private void Confirmation()
     {
-        foreach (KeyValuePair<Door, bool> entry in doorStatus)
-        {
-            entry.Key.SetLock(entry.Value);
-        }
         foreach (KeyValuePair<GameObject, bool> entry in itemAvaliable)
         {
             if (entry.Key != null) entry.Key.SetActive(entry.Value);
+        }
+        GameManager.instance.DoorCheck();
+        foreach (KeyValuePair<Door, bool> entry in doorStatus)
+        {
+            entry.Key.SetLock(entry.Value);
         }
     }
     private void Negation()
