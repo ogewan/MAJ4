@@ -5,12 +5,18 @@ using static GameManager;
 
 public class ShipZone : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    private bool inZone;
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (TagCheck(collision, "player")) instance.weightless = false;
+        if (TagCheck(collision, "player"))
+        {
+            Debug.Log("Player enter zone");
+            inZone = true;
+        }
     }
-    private void OnTriggerExit2D(Collider2D collision)
+    private void LateUpdate()
     {
-        if (TagCheck(collision, "player")) instance.weightless = true;
+        instance.weightless = !inZone;
+        inZone = false;
     }
 }

@@ -300,12 +300,15 @@ public class Console : MonoBehaviour
     public void FirstLoad()
     {
         LevelData data = GameManager.instance.level;
-        note = data.note;
-        for (int i = 0; i < data.precommands.Length; i++)
+        if (data != null)
         {
-            cctrl.AddToChatOutput(data.precommands[i]);
+            note = data.note;
+            for (int i = 0; i < data.precommands.Length; i++)
+            {
+                cctrl.AddToChatOutput(data.precommands[i]);
+            }
+            GameManager.instance.consoleLoaded = true;
         }
-        GameManager.instance.consoleLoaded = true;
     }
     public void EditorQuit()
     {
