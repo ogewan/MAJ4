@@ -125,3 +125,24 @@ MonoBehaviour:
   - levelName: level0
     password: 999
     unlocked: 1
+  - levelName: level1
+    password: 999
+    unlocked: 1
+  - levelName: level4_ambush
+    password: 999
+    unlocked: 1
+  - levelName: level6_spacewalk
+    password: 999
+    unlocked: 1
+  - levelName: level7_ghosts
+    password: 999
+    unlocked: 1
+  - levelName: level8_trap
+    password: 999
+    unlocked: 1
+  - levelName: level9_space
+    password: 999
+    unlocked: 1
+  - levelName: level10
+    password: 999
+    unlocked: 1

@@ -1209,7 +1209,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6940372873862932037, guid: 3c468a13060654b959ba2a11dd650e4b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6967183304342857780, guid: 3c468a13060654b959ba2a11dd650e4b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1399,6 +1399,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4661979276562918328, guid: a3816eee36b9f424ab0f425c4110e76b, type: 3}
+      propertyPath: nextLevelName
+      value: level1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4661979276562918328, guid: a3816eee36b9f424ab0f425c4110e76b, type: 3}
       propertyPath: goReference.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -1491,6 +1495,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Switch
       objectReference: {fileID: 0}
+    - target: {fileID: 8407699565890964448, guid: f11693efd590a5c459bcc824386ba408, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8407699565890964451, guid: f11693efd590a5c459bcc824386ba408, type: 3}
       propertyPath: goal
       value: 100
@@ -1509,7 +1517,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8407699565890964451, guid: f11693efd590a5c459bcc824386ba408, type: 3}
       propertyPath: accumulate
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8407699565890964451, guid: f11693efd590a5c459bcc824386ba408, type: 3}
       propertyPath: accumulation

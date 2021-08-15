@@ -194,7 +194,7 @@ public class GameManager : MonoBehaviour
         {
             Console.instance.ToggleConsole();
         }
-        if (hasPause && Input.GetKeyDown(KeyCode.Escape))
+        if (hasPause && Input.GetKeyDown(KeyCode.Escape) && gameStart)
         {
             pauseMenu.TogglePause();
         }

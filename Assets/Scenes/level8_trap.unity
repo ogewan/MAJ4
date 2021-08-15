@@ -2412,15 +2412,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4661979276562918328, guid: a3816eee36b9f424ab0f425c4110e76b, type: 3}
       propertyPath: note
-      value: 'Level 1 should basically be a tutorial.
-
-        Make sure that <color=purple>gameStart</color>
-        is set to true on the <color=blue>GameManager</color>. Remember to type <color=green>help</color>
-        for the rest of the commands.'
+      value: Trust no one
       objectReference: {fileID: 0}
     - target: {fileID: 4661979276562918328, guid: a3816eee36b9f424ab0f425c4110e76b, type: 3}
       propertyPath: audioTrack
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4661979276562918328, guid: a3816eee36b9f424ab0f425c4110e76b, type: 3}
+      propertyPath: nextLevelName
+      value: level9_space
       objectReference: {fileID: 0}
     - target: {fileID: 4661979276562918328, guid: a3816eee36b9f424ab0f425c4110e76b, type: 3}
       propertyPath: goReference.Array.size
