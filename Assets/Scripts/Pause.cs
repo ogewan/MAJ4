@@ -15,6 +15,7 @@ public class Pause : MonoBehaviour
     public void ControlPause(bool status)
     {
         pauseActive = status;
+        GameManager.instance.inPause = status;
         pauseBackground.SetActive(pauseActive);
         pauseWindow.SetActive(pauseActive);
         optionWindow.SetActive(false);

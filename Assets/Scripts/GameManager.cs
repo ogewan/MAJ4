@@ -175,12 +175,10 @@ public class GameManager : MonoBehaviour
         if (ccAllowed && ctrl)
         {
             Console.instance.ToggleConsole();
-            inConsole = !inConsole;
         }
         if (hasPause && Input.GetKeyDown(KeyCode.Escape))
         {
             pauseMenu.TogglePause();
-            inPause = !inPause;
         }
         if (hasPlayer && (isRunning || player.ignoreManager))
         {

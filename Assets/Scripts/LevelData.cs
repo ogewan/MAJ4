@@ -55,6 +55,11 @@ public class LevelData : MonoBehaviour
         Instantiate(Registry.instance.prefabs["WinScreen"], canvas.transform);
         Instantiate(Registry.instance.prefabs["LoseScreen"], canvas.transform);
         //reset parameters
+        gm.consoleLoaded = false;
+        gm.gameStart = false;
+        gm.inPause = false;
+        gm.inConsole = false;
+        gm.weightless = false;
         gm.keys.Clear();
         gm.clock = 0;
         gm.score = 0;

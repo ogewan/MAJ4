@@ -8,6 +8,8 @@ using static GameManager;
 public class Switch : MonoBehaviour
 {
     public bool visible = false;
+    public Sprite off;
+    public Sprite on;
     public string[] tags;
     public bool permanent;
     public bool accumulate;
@@ -25,7 +27,7 @@ public class Switch : MonoBehaviour
     private SpriteRenderer sprite;
     private void Start()
     {
-        sprite = GetComponent<SpriteRenderer>();
+        sprite = GetComponentInChildren<SpriteRenderer>();
         Negation();
         if (!showCount) count.gameObject.SetActive(false);
     }
@@ -106,5 +108,6 @@ public class Switch : MonoBehaviour
     }
     private void SetDisplay(bool display)
     {
+        sprite.sprite = display ? on : off;
     }
 }

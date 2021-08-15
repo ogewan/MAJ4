@@ -291,6 +291,7 @@ public class Console : MonoBehaviour
     public void ControlConsole(bool status)
     {
         ccActive = status;
+        GameManager.instance.inConsole = status;
         consoleBackground.SetActive(ccActive);
         commandWindow.SetActive(ccActive);
         editorWindow.SetActive(false);
