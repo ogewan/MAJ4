@@ -12,6 +12,7 @@ public class Switch : MonoBehaviour
     public Sprite on;
     public string[] tags;
     public bool permanent;
+    public bool oneshot;
     public bool accumulate;
     public int goal;
     public int accumulation = 0;
@@ -25,6 +26,7 @@ public class Switch : MonoBehaviour
     public TextMeshPro count;
     public bool showCount;
     public bool countdown;
+    private bool fired;
     private SpriteRenderer sprite;
     private void Start()
     {
@@ -47,9 +49,10 @@ public class Switch : MonoBehaviour
     {
         if (IsValid(collision))
         {
-            if (!accumulate) Confirmation();
+            if (!accumulate && !fired) Confirmation();
             activated = true;
             SetDisplay(activated);
+            if (oneshot) fired = true;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
