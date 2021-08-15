@@ -11,6 +11,7 @@ public class bossController : MonoBehaviour
     public float rammingTime = 5f;
     public float ramSpeed = 5f;
     public int health = 5;
+    public int currentHealth = 5;
     public GameObject[] reward = new GameObject[] { };
     public int scoreReward = 50;
     private bool isRamming;
@@ -55,7 +56,7 @@ public class bossController : MonoBehaviour
             {
                 ramTimerCD -= Time.deltaTime;
             }
-            if (health <= 0)
+            if (currentHealth <= 0)
             {
                 //Destroy(gameObject);
                 gameObject.SetActive(false);
@@ -70,6 +71,12 @@ public class bossController : MonoBehaviour
                     Instantiate(obj, mypos, Quaternion.identity);
                 }
                 Instantiate(Registry.instance.prefabs["Explosion"], transform.position, Quaternion.identity);
+                //Reset boss
+                currentHealth = health;
+                foreach (Transform child in transform)
+                {
+                    child.gameObject.SetActive(true);
+                }
             }
         }
     }
@@ -78,7 +85,7 @@ public class bossController : MonoBehaviour
         if (TagCheck(other, "bullet"))
         {
             Destroy(other.gameObject);
-            health--;
+            currentHealth--;
             //Debug.Log("Boss damaged");
         }
         else if (TagCheck(other, "player"))
