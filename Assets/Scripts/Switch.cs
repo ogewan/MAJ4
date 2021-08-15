@@ -24,6 +24,7 @@ public class Switch : MonoBehaviour
     public bool activated;
     public TextMeshPro count;
     public bool showCount;
+    public bool countdown;
     private SpriteRenderer sprite;
     private void Start()
     {
@@ -102,7 +103,7 @@ public class Switch : MonoBehaviour
             }
             if (showCount)
             {
-                count.text = $"{accumulation}";
+                count.text = $"{(countdown ? goal - accumulation : accumulation)}";
             }
         }
     }
