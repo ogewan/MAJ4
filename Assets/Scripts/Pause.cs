@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Pause : MonoBehaviour
 {
@@ -24,6 +25,11 @@ public class Pause : MonoBehaviour
     {
         optionWindow.SetActive(true);
         pauseWindow.SetActive(false);
+    }
+    public void Retry()
+    {
+        ControlPause(false);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public void MainMenu()
     {

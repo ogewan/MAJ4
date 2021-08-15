@@ -62,7 +62,7 @@ MonoBehaviour:
   templateScene: {fileID: 102900000, guid: 9d60b61e26e35104482fd5e1f9ba5a13, type: 3}
   templateName: Level Template
   description: 
-  preview: {fileID: 0}
+  preview: {fileID: -4570189415238974624}
   dependencies:
   - dependency: {fileID: 2800000, guid: 85a45a6d8b2ffb84987d2b028ecfb220, type: 3}
     instantiationMode: 1

@@ -11,4 +11,25 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/level0.unity
     guid: 9d60b61e26e35104482fd5e1f9ba5a13
+  - enabled: 1
+    path: Assets/Scenes/level1.unity
+    guid: ae2eeba667396d043b89b760f04c3208
+  - enabled: 1
+    path: Assets/Scenes/level4_ambush.unity
+    guid: a9fca234fd9af6647850eb19f9b4cd13
+  - enabled: 1
+    path: Assets/Scenes/level6_spacewalk.unity
+    guid: 2d5cf9d50efebc943adbdee6c503b240
+  - enabled: 1
+    path: Assets/Scenes/level7_ghosts.unity
+    guid: ddd5e25cefeed4f4fab261b7172e2532
+  - enabled: 1
+    path: Assets/Scenes/level8_trap.unity
+    guid: fdeed2f12eefef84caa47bab4ac0d17c
+  - enabled: 1
+    path: Assets/Scenes/level9_space.unity
+    guid: 3770adb0c387c604f86c8ab289f6a751
+  - enabled: 1
+    path: Assets/Scenes/level10.unity
+    guid: cb7214f6240ccc046b0b4ac9e7da735f
   m_configObjects: {}
