@@ -121,7 +121,7 @@ public class Console : MonoBehaviour
             selectMode = false;
             response = "";
             var lgos = GameManager.instance.level.goReference;
-            if (int.TryParse(input, out int id) && id < lgos.Length && id >= 0)
+            if (int.TryParse(input, out int id) && id < lgos.Count && id >= 0)
             {
                 SelectObject(lgos[id]);
             }
@@ -187,9 +187,11 @@ public class Console : MonoBehaviour
                         $"disable: Disable selected GameObject.\n" +
                         $"list: List disabled GameObjects.\n" +
                         $"keys: List registered keys.\n" +
-                        $"edit: Edit a GameObject's parameters." +
-                        $"reload: Reset a level to its start." +
-                        $"note: Level notes.";
+                        $"edit: Edit a GameObject's parameters.\n" +
+                        $"reload: Reset a level to its start.\n" +
+                        $"load: Load a level by its ID.\n" +
+                        $"note: Level notes.\n" +
+                        $"keys: List keys.";
                     break;
                 case "r":
                 case "reset":
@@ -337,7 +339,7 @@ public class Console : MonoBehaviour
     {
         var levelGobjs = GameManager.instance.level.goReference;
         string list = "";
-        for (int i = 0; i < levelGobjs.Length; i++)
+        for (int i = 0; i < levelGobjs.Count; i++)
         {
             list += $"[{i}]: {levelGobjs[i].name}\n";
         }

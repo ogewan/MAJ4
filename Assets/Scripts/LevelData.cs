@@ -17,7 +17,7 @@ public class LevelData : MonoBehaviour
     public string[] precommands;
     [Tooltip("Audio of BGM to play")]
     public int audioTrack = 0;
-    public Editable[] goReference = new Editable[] { };
+    public List<Editable> goReference = new List<Editable> { };
     public bool startOnLoad = true;
     public List<string> objectives;
 
@@ -30,6 +30,7 @@ public class LevelData : MonoBehaviour
     private void RegisterLevel()
     {
         var gm = GameManager.instance;
+        goReference.Insert(0, gm.GetComponent<Editable>());
         gm.level = this;
         //Level Setup
         AudioManager.instance.PlayBGM(audioTrack);

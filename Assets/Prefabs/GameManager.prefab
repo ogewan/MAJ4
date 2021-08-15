@@ -48,18 +48,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: {fileID: 0}
   playerHealth: 5
+  maxHealth: 0
   clock: 0
   score: 0
+  rank: 
+  objectives: []
   player: {fileID: 0}
   pauseMenu: {fileID: 0}
   healthDisplay: {fileID: 0}
   scoreDisplay: {fileID: 0}
   timerDisplay: {fileID: 0}
+  overlay: {fileID: 0}
+  win: {fileID: 0}
+  lose: {fileID: 0}
+  objectivesDisplay: {fileID: 0}
   ccAllowed: 0
   consoleLoaded: 0
   gameStart: 0
   inPause: 0
   inConsole: 0
+  weightless: 0
+  keys: []
+  doors: []
+  lastMovement: {x: 0, y: 0}
 --- !u!58 &393954675
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -110,5 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b0b33509956ca94fa3726a14cbecf06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelPasswordList: []
-  levelNameList: []
+  levelPasswordList:
+  - 999
+  levelNameList:
+  - level0
