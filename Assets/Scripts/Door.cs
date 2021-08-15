@@ -49,6 +49,10 @@ public class Door : MonoBehaviour
         }
         return false;
     }
+    private void Awake()
+    {
+        GameManager.instance.doors.Clear();
+    }
     private void Start()
     {
         RegisterDoor();
