@@ -7,58 +7,24 @@ using UnityEngine.SceneManagement;
 public class menuHandler : MonoBehaviour
 {
     public int audioTrack;
-    //public Button[] levelButtons;
-    public void LoadLevelWithGameObjectName()
+    public Button[] levelButtons;
+    public void NewGame()
     {
-    }
-    //WARNING: CURSED PROGRAMMING AHEAD
-    public void LoadLevel_0()
-    {
-        SceneManager.LoadScene("level0");
-    }
-    public void LoadLevel_1()
-    {
-        SceneManager.LoadScene("level1");
-    }
-    public void LoadLevel_2()
-    {
-        SceneManager.LoadScene("level2");
-    }
-    public void LoadLevel_3()
-    {
-        SceneManager.LoadScene("level3");
-    }
-    public void LoadLevel_4()
-    {
-        SceneManager.LoadScene("level4");
-    }
-    public void LoadLevel_5()
-    {
-        SceneManager.LoadScene("level5");
-    }
-    public void LoadLevel_6()
-    {
-        SceneManager.LoadScene("level6");
-    }
-    public void LoadLevel_7()
-    {
-        SceneManager.LoadScene("level7");
-    }
-    public void LoadLevel_8()
-    {
-        SceneManager.LoadScene("level8");
-    }
-    public void LoadLevel_9()
-    {
-        SceneManager.LoadScene("level9");
-    }
-    public void LoadLevel_10()
-    {
-        SceneManager.LoadScene("level10");
+        SceneManager.LoadScene($"level0");
     }
     public void Quit()
     {
         Application.Quit();
+    }
+    public void LoadLevelButtons()
+    {
+        for (int i = 0; i < levelButtons.Length; i++)
+        {
+            var btn = levelButtons[i];
+            var levelName = GameManager.instance.LoadLevel(i);
+            btn.interactable = GameManager.instance.IsLevelUnlocked(i);
+            btn.onClick.AddListener(() => SceneManager.LoadScene(levelName));
+        }
     }
     private void Start()
     {

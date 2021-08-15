@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b0b33509956ca94fa3726a14cbecf06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelPasswordList:
-  - 999
-  levelNameList:
-  - level0
+  levelStatus:
+  - levelName: level0
+    password: 999
+    unlocked: 1

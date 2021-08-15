@@ -90,19 +90,27 @@ public class GameManager : MonoBehaviour
     }
     public string GetLevel(int level)
     {
-        return (level >= 0 && level < levelPasswordList.Count) ? levelPasswordList[level] : "";
+        var ls = GetLevelStatus(level);
+        return (ls != null) ? ls.password : "";
     }
-    public void SetPassList(List<string> passList)
+    public void SetLevelStatus(List<LevelStatus> statusList)
     {
-        levelPasswordList = passList;
-    }
-    public void SetNameList(List<string> nameList)
-    {
-        levelNameList = nameList;
+        levelStatus = statusList;
     }
     public string LoadLevel(int level)
     {
-        return (level >= 0 && level < levelNameList.Count) ? levelNameList[level] : "";
+        var ls = GetLevelStatus(level);
+        return (ls != null) ? ls.levelName : "";
+    }
+    public bool IsLevelUnlocked(int level)
+    {
+        var ls = GetLevelStatus(level);
+        return (ls != null) ? ls.unlocked : false;
+    }
+    public void UnlockLevel(int level)
+    {
+        var ls = GetLevelStatus(level);
+        if (ls != null) ls.unlocked = true;
     }
     public void SetRank()
     {
@@ -145,9 +153,19 @@ public class GameManager : MonoBehaviour
         keys.Add(keydata);
         DoorCheck();
     }
+    [System.Serializable]
+    public class LevelStatus
+    {
+        public string levelName;
+        public string password;
+        public bool unlocked;
+    }
     private static GameManager _instance;
-    private List<string> levelPasswordList = new List<string> { };
-    private List<string> levelNameList = new List<string> { };
+    private List<LevelStatus> levelStatus = new List<LevelStatus> { };
+    private LevelStatus GetLevelStatus(int level)
+    {
+        return (level >= 0 && level < levelStatus.Count) ? levelStatus[level] : null;
+    }
     private void GameEnd()
     {
         gameStart = false;
